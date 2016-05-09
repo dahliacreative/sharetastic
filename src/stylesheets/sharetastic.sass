@@ -1,0 +1,107 @@
+// --------------------------------------------------------------------------
+//      _                    _            _   _      
+//     | |                  | |          | | (_)     
+//  ___| |__   __ _ _ __ ___| |_ __ _ ___| |_ _  ___ 
+// / __| '_ \ / _` | '__/ _ \ __/ _` / __| __| |/ __|
+// \__ \ | | | (_| | | |  __/ || (_| \__ \ |_| | (__ 
+// |___/_| |_|\__,_|_|  \___|\__\__,_|___/\__|_|\___|
+//
+// --------------------------------------------------------------------------
+//  Version: 1.0
+//   Author: Simon Sturgess
+//  Website: dahliacreative.github.io/sharetastic
+//     Docs: dahliacreative.github.io/sharetastic/docs
+//     Repo: github.com/dahliacreative/sharetastic
+//   Issues: github.com/dahliacreative/sharetastic/issues
+// --------------------------------------------------------------------------
+
+
+// --------------------------------------------------------------------------
+// Default Theme Variables
+// --------------------------------------------------------------------------
+
+$sharetastic-font-size: 13px !default
+$sharetastic-font-color: #ccc !default
+$sharetastic-gutter: 4px !default
+$sharetastic-font: sans-serif !default
+$sharetastic-size: 32px
+$sharetastic-border-radius: 50%
+$sharetastic-icon-fill: #fff
+$sharetastic-facebook: #3a5795
+$sharetastic-facebook-hover: darken($sharetastic-facebook, 10%)
+$sharetastic-twitter: #1da1f2
+$sharetastic-twitter-hover: darken($sharetastic-twitter, 10%)
+$sharetastic-linkedin: #00a0dc
+$sharetastic-linkedin-hover: darken($sharetastic-linkedin, 10%)
+$sharetastic-email: #F70C32
+$sharetastic-email-hover: darken($sharetastic-email, 10%)
+
+
+// --------------------------------------------------------------------------
+// Default Theme
+// --------------------------------------------------------------------------
+
+.sharetastic
+  color: $sharetastic-font-color
+  font-family: $sharetastic-font
+  font-size: $sharetastic-font-size
+  text-align: center
+  display: -webkit-box
+  display: -ms-flexbox
+  display: -webkit-flex
+  display: flex
+  -webkit-justify-content: center
+  -moz-justify-content: center
+  -ms-justify-content: center
+  -o-justify-content: center
+  justify-content: center
+  
+  &__button
+    position: relative
+    border-radius: $sharetastic-border-radius
+    height: $sharetastic-size
+    margin: 0 $sharetastic-gutter/2
+    overflow: hidden
+    text-indent: -100%
+    vertical-align: middle
+    width: $sharetastic-size
+    transition: background-color 0.3s
+
+    &--facebook
+      background-color: $sharetastic-facebook
+      &:hover
+        background-color: $sharetastic-facebook-hover
+      .sharetastic__icon
+        width: 31.25%
+        height: auto
+    &--twitter
+      background-color: $sharetastic-twitter
+      &:hover
+        background-color: $sharetastic-twitter-hover
+      .sharetastic__icon
+        width: 56.25%
+        height: auto
+    &--linkedin
+      background-color: $sharetastic-linkedin
+      &:hover
+        background-color: $sharetastic-linkedin-hover
+      .sharetastic__icon
+        width: 56.25%
+        height: auto
+    &--email
+      background-color: $sharetastic-email
+      &:hover
+        background-color: $sharetastic-email-hover
+      .sharetastic__icon
+        width: 62.5%
+        height: auto
+
+  &__icon
+    fill: $sharetastic-icon-fill
+    position: absolute
+    top: 50%
+    left: 50%
+    -webkit-transform: translate(-50%, -50%)
+    -ms-transform: translate(-50%, -50%)
+    -o-transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%)

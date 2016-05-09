@@ -1,0 +1,14 @@
+{
+  "name": "Selectron",
+  "version": "1.0.0",
+  "description": "An accessible jQuery custom select",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-contrib-concat": "~0.5.0",
+    "grunt-contrib-copy": "~0.6.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-contrib-sass": "~0.8.1",
+    "load-grunt-config": "~0.16.0"
+  }
+}

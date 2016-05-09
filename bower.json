@@ -1,0 +1,34 @@
+{
+  "name": "sharetastic",
+  "version": "1.0.0",
+  "description": "A simple jQuery social sharing plugin",
+  "homepage": "https://github.com/dahliacreative/sharetastic",
+  "authors": [
+    "Simon Sturgess - @dahliacreative"
+  ],
+  "keywords": [
+    "jQuery",
+    "social",
+    "sharing"
+  ],
+  "license": "MIT",
+  "main": [
+    "dist/sharetastic.js",
+    "dist/sharetastic.sass"
+  ],
+  "dependencies": {
+    "jquery": ">=1.7"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "grunt",
+    "Gruntfile.js",
+    "package.json",
+    "README.md",
+    "src"
+  ]
+}
