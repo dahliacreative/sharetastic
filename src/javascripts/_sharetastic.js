@@ -1,17 +1,18 @@
 // --------------------------------------------------------------------------
-//            _           _                   
-//   ___  ___| | ___  ___| |_ _ __ ___  _ __  
-//  / __|/ _ \ |/ _ \/ __| __| '__/ _ \| '_ \ 
-//  \__ \  __/ |  __/ (__| |_| | | (_) | | | |
-//  |___/\___|_|\___|\___|\__|_|  \___/|_| |_|
+//      _                    _            _   _      
+//     | |                  | |          | | (_)     
+//  ___| |__   __ _ _ __ ___| |_ __ _ ___| |_ _  ___ 
+// / __| '_ \ / _` | '__/ _ \ __/ _` / __| __| |/ __|
+// \__ \ | | | (_| | | |  __/ || (_| \__ \ |_| | (__ 
+// |___/_| |_|\__,_|_|  \___|\__\__,_|___/\__|_|\___|
 //
 // --------------------------------------------------------------------------
 //  Version: 1.0
 //   Author: Simon Sturgess
-//  Website: dahliacreative.github.io/selectron
-//     Docs: dahliacreative.github.io/selectron/docs
-//     Repo: github.com/dahliacreative/selectron
-//   Issues: github.com/dahliacreative/selectron/issues
+//  Website: dahliacreative.github.io/sharetastic
+//     Docs: dahliacreative.github.io/sharetastic/docs
+//     Repo: github.com/dahliacreative/sharetastic
+//   Issues: github.com/dahliacreative/sharetastic/issues
 // --------------------------------------------------------------------------
 
 (function(window, $) {
