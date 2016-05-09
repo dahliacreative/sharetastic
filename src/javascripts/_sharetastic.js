@@ -27,13 +27,12 @@
         email: true
       }
     });
-    var ajax = new XMLHttpRequest();
-    ajax.open("GET", options.sprite, true);
-    ajax.responseType = "document";
-    ajax.onload = function(e) {
-      document.body.insertBefore(ajax.responseXML.documentElement, document.body.childNodes[0]);
-    }
-    ajax.send();
+    $.ajax({
+      url: options.sprite,
+      success: function(data) {
+        $('body').prepend(data.documentElement);
+      }
+    });
     return this.each(function() {
       new Sharetastic($(this), options).build();
     });
