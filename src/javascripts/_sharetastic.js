@@ -18,7 +18,7 @@
 (function(window, $) {
 
   $.fn.sharetastic = function(options) {
-    var options = $.extend(options, {
+    var options = $.extend({
       sprite: 'sharetastic.svg',
       feeds: {
         facebook: true,
@@ -26,7 +26,7 @@
         linkedin: true,
         email: true
       }
-    });
+    }, options);
     $.ajax({
       url: options.sprite,
       success: function(data) {
