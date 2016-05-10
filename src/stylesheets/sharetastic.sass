@@ -105,3 +105,41 @@ $sharetastic-email-hover: darken($sharetastic-email, 10%) !default
     -ms-transform: translate(-50%, -50%)
     -o-transform: translate(-50%, -50%)
     transform: translate(-50%, -50%)
+
+
+  // ------------------------------------------------------------------------
+  // Simple Theme
+  // ------------------------------------------------------------------------
+  
+  &--simple &
+
+    &__icon
+      transition: fill 0.3s
+
+    &__button
+      background-color: transparent
+      border-radius: 0
+
+      &--facebook
+        .sharetastic__icon
+          fill: $sharetastic-facebook
+        &:hover .sharetastic__icon
+          fill: $sharetastic-facebook-hover
+
+      &--twitter
+        .sharetastic__icon
+          fill: $sharetastic-twitter
+        &:hover .sharetastic__icon
+          fill: $sharetastic-twitter-hover
+
+      &--linkedin
+        .sharetastic__icon
+          fill: $sharetastic-linkedin
+        &:hover .sharetastic__icon
+          fill: $sharetastic-linkedin-hover
+
+      &--email
+        .sharetastic__icon
+          fill: $sharetastic-email
+        &:hover .sharetastic__icon
+          fill: $sharetastic-email-hover
