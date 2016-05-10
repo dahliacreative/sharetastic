@@ -1,0 +1,235 @@
+html, body {
+  height: 100%;
+}
+
+::-moz-selection { background: #9f0053; color: #fff; }
+::selection { background: #9f0053; color: #fff; }
+
+html {
+  background: #0cf1cb;
+  background: -moz-linear-gradient(-45deg,  #0cf1cb 0%, #009f5c 100%);
+  background: -webkit-linear-gradient(-45deg,  #0cf1cb 0%,#009f5c 100%);
+  background: linear-gradient(135deg,  #0cf1cb 0%,#009f5c 100%);
+  background-attachment: fixed;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  color: #fff;
+  margin: 0;
+}
+
+.heading {
+  font-size: 18px;
+  font-weight: normal;
+  margin: 0;
+  font-weight: 300;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: rgba(0,0,0,0.5);
+  padding: 15px 20px;
+}
+
+.well {
+  padding: 30px;
+  background-color: rgba(0,0,0,0.2);
+}
+
+.well >*:first-child {
+  margin-top: 0;
+}
+
+.sr-only {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.more {
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  padding-bottom: 30px;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  transition: opacity 0.5s;
+}
+
+.more.hide {
+  opacity: 0;
+}
+
+.more:before,
+.more:after {
+    background-color: #fff;
+    content: "";
+    height: 2px;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 10px;
+    margin-left: -5px;
+}
+
+.more:before {
+    -webkit-transform: rotate(-45deg) translateX(50%);
+    -ms-transform: rotate(-45deg) translateX(50%);
+    -o-transform: rotate(-45deg) translateX(50%);
+    transform: rotate(-45deg) translateX(50%)
+}
+
+.more:after {
+    -webkit-transform: rotate(45deg) translateX(-50%);
+    -ms-transform: rotate(45deg) translateX(-50%);
+    -o-transform: rotate(45deg) translateX(-50%);
+    transform: rotate(45deg) translateX(-50%)
+}
+
+section.home {
+  height: 100%;
+  background: #0cf1cb;
+  background: -moz-linear-gradient(-45deg,  #0cf1cb 0%, #009f5c 100%);
+  background: -webkit-linear-gradient(-45deg,  #0cf1cb 0%,#009f5c 100%);
+  background: linear-gradient(135deg,  #0cf1cb 0%,#009f5c 100%);
+  background-attachment: fixed;
+    -ms-align-items: center;
+  align-items: center;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: center;
+}
+
+.section {
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+
+.content {
+  max-width: 680px;
+  padding: 0 10px;
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.intro {
+  -ms-align-items: center;
+  align-items: center;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  background-color: rgba(0,0,0,0.2);
+}
+
+.intro .logo {
+  padding: 50px;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.intro .logo img {
+  display: block;
+}
+
+.intro .select {
+  padding: 50px;
+  -webkit-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  -o-flex: 1;
+  flex: 1;
+}
+
+.intro .github {
+  padding: 50px 50px 50px 0;
+}
+
+.intro .github a {
+  width: 0;
+  height: 36px;
+  display: block;
+  padding-left: 36px;
+  overflow: hidden;
+  background: url(../images/github.svg);
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+@media (max-width: 767px) {
+  .intro {
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -o-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  .intro .logo {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px;
+  }
+  .intro .logo img {
+    margin: 0 auto;
+    width: 50px;
+  }
+  .intro .select {
+    padding: 20px;
+  }
+  .intro .github {
+    padding: 20px;
+    padding-left: 0;
+  }
+  .well {
+    padding: 20px;
+  }
+}
+
+.selectron {
+  width: 100%;
+}
+
+pre {
+  display: block;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.2);
+}
+
+pre:last-child {
+  margin-bottom: 0;
+}
+
+p > code {
+  background: rgba(0,0,0,0.1);
+  color: #7ef2df;
+  display: inline-block;
+  padding: 0 8px 2px;
+}
+
+p {
+  line-height: 1.6;
+}
+
+code {
+  padding: 15px;
+}
