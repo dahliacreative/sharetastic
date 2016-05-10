@@ -143,3 +143,48 @@ $sharetastic-email-hover: darken($sharetastic-email, 10%) !default
           fill: $sharetastic-email
         &:hover .sharetastic__icon
           fill: $sharetastic-email-hover
+
+
+  // ------------------------------------------------------------------------
+  // Simple Theme
+  // ------------------------------------------------------------------------
+  
+  &--reversed &
+
+    &__icon
+      transition: fill 0.3s
+
+    &__button
+      background-color: #fff
+
+      &--facebook
+        .sharetastic__icon
+          fill: $sharetastic-facebook
+        &:hover
+          background-color: $sharetastic-facebook-hover 
+          .sharetastic__icon
+            fill: #fff
+
+      &--twitter
+        .sharetastic__icon
+          fill: $sharetastic-twitter
+        &:hover
+          background-color: $sharetastic-twitter-hover 
+          .sharetastic__icon
+            fill: #fff
+
+      &--linkedin
+        .sharetastic__icon
+          fill: $sharetastic-linkedin
+        &:hover
+          background-color: $sharetastic-linkedin-hover 
+          .sharetastic__icon
+            fill: #fff
+
+      &--email
+        .sharetastic__icon
+          fill: $sharetastic-email
+        &:hover
+          background-color: $sharetastic-email-hover 
+          .sharetastic__icon
+            fill: #fff
