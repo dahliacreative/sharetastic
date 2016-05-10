@@ -88,13 +88,20 @@
 Sharetastic.prototype.build = function() {
   for(var key in this.options.feeds) {
     if(this.options.feeds[key]) {
-      var link = $('<a/>');
+      var link = $('<a/>'),
+          self = this;
       link
         .addClass(this.feeds[key].class)
         .attr('href', this.feeds[key].href)
         .attr('target', this.feeds[key].target)
         .html(this.feeds[key].icon);
       this.el.append(link);
+      if(key != 'email') {
+        link.on('click', function() {
+          self.popup($(this).attr('href'), 500, 300);
+          return false;
+        });
+      }
     }
   }
 };
@@ -111,4 +118,12 @@ Sharetastic.prototype.getMetaContent = function(propName) {
     }
   }
   return "";
+};
+// --------------------------------------------------------------------------
+// Get Meta Content
+// --------------------------------------------------------------------------
+Sharetastic.prototype.popup = function(url, width, height) {
+  var left = (screen.width / 2) - (width / 2),
+      top = (screen.height / 2) - (height / 2);
+  window.open(url, "", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=" + width + ",height=" + height + ",top=" + top + ",left=" + left);
 };
