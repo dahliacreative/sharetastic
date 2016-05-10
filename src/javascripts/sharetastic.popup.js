@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------
-// Get Meta Content
+// Pop up Window
 // --------------------------------------------------------------------------
 Sharetastic.prototype.popup = function(url, width, height) {
   var left = (screen.width / 2) - (width / 2),
