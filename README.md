@@ -31,9 +31,9 @@ There are a few options you can pass when you initialize sharetastic, these are:
   customFeeds: {
 		myCustomFeed: {
 			class: 'sharetastic__button sharetastic__button--myCustomFeed',
-      			href: 'http://myCustomFeed.com',
-      			target: '_blank',
-      			icon: '<svg width="10" height="19" class="sharetastic__icon"><use xlink:href="#myCustomFeed"/></svg>'
+    	href: 'http://myCustomFeed.com',
+    	target: '_blank',
+    	icon: '<svg width="10" height="19" class="sharetastic__icon"><use xlink:href="#myCustomFeed"/></svg>'
 		}
   },
   feeds: {
