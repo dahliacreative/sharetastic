@@ -7,7 +7,7 @@
 // |___/_| |_|\__,_|_|  \___|\__\__,_|___/\__|_|\___|
 //
 // --------------------------------------------------------------------------
-//  Version: 1.0
+//  Version: 1.1
 //   Author: Simon Sturgess
 //  Website: dahliacreative.github.io/sharetastic
 //     Docs: dahliacreative.github.io/sharetastic/docs
@@ -17,16 +17,34 @@
 
 (function(window, $) {
 
-  $.fn.sharetastic = function(options) {
-    var options = $.extend({
-      sprite: 'sharetastic.svg',
-      feeds: {
+  $.fn.sharetastic = function(opts) {
+    var options = {},
+        customFeeds = {};
+
+    if(opts && opts.hasOwnProperty('customFeeds')) {
+      options.customFeeds = opts.customFeeds;
+    }
+
+    for(var key in options.customFeeds) {
+      customFeeds[key] = true;
+    }
+
+    options.feeds = $.extend({
         facebook: true,
         twitter: true,
         linkedin: true,
         email: true
-      }
-    }, options);
+      }, customFeeds);
+
+    if(opts && opts.hasOwnProperty('feeds')) {
+      options.feeds = $.extend(options.feeds, opts.feeds);
+    }
+
+    if(opts && opts.hasOwnProperty('sprite')) {
+      options.sprite = opts.sprite;
+    } else {
+      options.sprite = 'sharetastic.svg';
+    }
     $.ajax({
       url: options.sprite,
       success: function(data) {
@@ -55,7 +73,7 @@
     description: this.getMetaContent('description')
   }
 
-  this.feeds = {
+  var feeds = {
     facebook: {
       class: 'sharetastic__button sharetastic__button--facebook',
       href: 'https://www.facebook.com/sharer/sharer.php?u=' + this.page.url + '&title=' + this.page.title + '&description=' + this.page.description,
@@ -80,5 +98,7 @@
       icon: '<svg width="20" height="13" class="sharetastic__icon"><use xlink:href="#email"/></svg>'
     }
   }
+
+  this.feeds = $.extend(feeds, options.customFeeds);
 };
 
