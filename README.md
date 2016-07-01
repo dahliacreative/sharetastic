@@ -25,12 +25,12 @@ $('.sharetastic').sharetastic();
 
 ##Options
 There are a few options you can pass when you initialize sharetastic, these are:
-<<<<<<< HEAD
-| Option            | Description             | Default           |
-|-------------------|-------------------------|-------------------|
-|sprite             | Path to sprite          | "sharetastic.svg" |
-|popup              | Makes links open in a popup window | true |
-|services | Object of services, you can add custom ones or overwrite elements of the default services| |
+
+| Option             | Description                                                                               | Default           |
+|--------------------|-------------------------------------------------------------------------------------------|-------------------|
+| sprite             | Path to sprite                                                                            | "sharetastic.svg" |
+| popup              | Makes links open in a popup window                                                        | true              |
+| services           | Object of services, you can add custom ones or overwrite elements of the default services |                   |
 
 ####Example
 ```
