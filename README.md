@@ -25,6 +25,7 @@ $('.sharetastic').sharetastic();
 
 ##Options
 There are a few options you can pass when you initialize sharetastic, these are:
+<<<<<<< HEAD
 | Option            | Description             | Default           |
 |-------------------|-------------------------|-------------------|
 |sprite             | Path to sprite          | "sharetastic.svg" |
@@ -94,6 +95,7 @@ $sharetastic-linkedin: #00a0dc !default
 $sharetastic-linkedin-hover: darken($sharetastic-linkedin, 10%) !default
 $sharetastic-email: #F70C32 !default
 $sharetastic-email-hover: darken($sharetastic-email, 10%) !default
+$sharetastic-alignment: center !default
 ```
 
 ##License
