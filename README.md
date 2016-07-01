@@ -25,25 +25,35 @@ $('.sharetastic').sharetastic();
 
 ##Options
 There are a few options you can pass when you initialize sharetastic, these are:
+| Option            | Description             | Default           |
+|-------------------|-------------------------|-------------------|
+|sprite             | Path to sprite          | "sharetastic.svg" |
+|popup              | Makes links open in a popup window | true |
+|services | Object of services, you can add custom ones or overwrite elements of the default services| |
+
+####Example
 ```
-{
-  sprite: 'path/to/sprite',
-  customFeeds: {
-		myCustomFeed: {
-			class: 'sharetastic__button sharetastic__button--myCustomFeed',
-      href: 'http://myCustomFeed.com',
-      target: '_blank',
-      icon: '<svg width="10" height="19" class="sharetastic__icon"><use xlink:href="#myCustomFeed"/></svg>'
-		}
-  },
-  feeds: {
-    facebook: true,
-    twitter: true,
-    linkedin: true,
-    email: true
+  {
+    sprite: "sharetastic.svg",
+    popup: true,
+    services: {
+      facebook: {
+        enabled: true,
+        href: 'http://facebook.com',
+        icon: {
+          width: 10,
+          height: 19,
+          id: 'facebook'
+        }
+      }
+    }
   }
-}
 ```
+Sharer links are auto generated for available services by default, however you can overwrite these if you wish to use sharetastic simply for social links. Current available services are:
+- Facebook
+- Twitter
+- LinkedIn
+- Email
 
 ##Themes
 There are three themes for sharetastic, `default` `simple` and `reversed`. To use a theme other than the default one, simply add it's modifier class like so:
