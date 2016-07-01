@@ -84,6 +84,7 @@ $sharetastic-linkedin: #00a0dc !default
 $sharetastic-linkedin-hover: darken($sharetastic-linkedin, 10%) !default
 $sharetastic-email: #F70C32 !default
 $sharetastic-email-hover: darken($sharetastic-email, 10%) !default
+$sharetastic-alignment: center !default
 ```
 
 ##License
