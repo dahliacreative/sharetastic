@@ -44,7 +44,7 @@ There are a few options you can pass when you initialize sharetastic, these are:
         icon: {
           width: 10,
           height: 19,
-          id: 'facebook'
+          id: 'sharetastic-facebook'
         }
       }
     }
