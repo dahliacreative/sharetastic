@@ -35,6 +35,7 @@ $sharetastic-linkedin: #00a0dc !default
 $sharetastic-linkedin-hover: darken($sharetastic-linkedin, 10%) !default
 $sharetastic-email: #F70C32 !default
 $sharetastic-email-hover: darken($sharetastic-email, 10%) !default
+$sharetastic-alignment: center !default
 
 
 // --------------------------------------------------------------------------
@@ -50,11 +51,11 @@ $sharetastic-email-hover: darken($sharetastic-email, 10%) !default
   display: -ms-flexbox
   display: -webkit-flex
   display: flex
-  -webkit-justify-content: center
-  -moz-justify-content: center
-  -ms-justify-content: center
-  -o-justify-content: center
-  justify-content: center
+  -webkit-justify-content: $sharetastic-alignment
+  -moz-justify-content: $sharetastic-alignment
+  -ms-justify-content: $sharetastic-alignment
+  -o-justify-content: $sharetastic-alignment
+  justify-content: $sharetastic-alignment
   
   &__button
     position: relative

@@ -18,6 +18,16 @@
 (function(window, $) {
 
   $.fn.sharetastic = function(options) {
+    var spriteOption = options && options.hasOwnProperty('sprite'),
+        sprite = spriteOption ? options.sprite : 'sharetastic.svg';
+
+    $.ajax({
+      url: sprite,
+      success: function(data) {
+        $('body').prepend(data.documentElement);
+      }
+    });
+
     return this.each(function() {
       new Sharetastic($(this), options).build();
     });
@@ -52,7 +62,7 @@
         icon: {
           width: 10,
           height: 19,
-          id: 'facebook'
+          id: 'sharetastic-facebook'
         }
       },
       twitter: {
@@ -61,7 +71,7 @@
         icon: {
           width: 18,
           height: 14,
-          id: 'twitter'
+          id: 'sharetastic-twitter'
         }
       },
       linkedin: {
@@ -70,7 +80,7 @@
         icon: {
           width: 18,
           height: 18,
-          id: 'linkedin'
+          id: 'sharetastic-linkedin'
         }
       },
       email: {
@@ -79,19 +89,11 @@
         icon: {
           width: 20,
           height: 13,
-          id: 'email'
+          id: 'sharetastic-email'
         }
       }
     }
   }, options);
-
-  // Ajax the Sprite and prepend to the page
-  $.ajax({
-    url: this.options.sprite,
-    success: function(data) {
-      $('body').prepend(data.documentElement);
-    }
-  });
 
 };
 
