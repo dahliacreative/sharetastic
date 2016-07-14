@@ -7,7 +7,7 @@
 // |___/_| |_|\__,_|_|  \___|\__\__,_|___/\__|_|\___|
 //
 // --------------------------------------------------------------------------
-//  Version: 1.2
+//  Version: 1.2.3
 //   Author: Simon Sturgess
 //  Website: dahliacreative.github.io/sharetastic
 //     Docs: dahliacreative.github.io/sharetastic/docs
