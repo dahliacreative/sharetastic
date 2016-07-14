@@ -7,7 +7,7 @@
 // |___/_| |_|\__,_|_|  \___|\__\__,_|___/\__|_|\___|
 //
 // --------------------------------------------------------------------------
-//  Version: 1.0
+//  Version: 1.1
 //   Author: Simon Sturgess
 //  Website: dahliacreative.github.io/sharetastic
 //     Docs: dahliacreative.github.io/sharetastic/docs
@@ -18,21 +18,16 @@
 (function(window, $) {
 
   $.fn.sharetastic = function(options) {
-    var options = $.extend({
-      sprite: 'sharetastic.svg',
-      feeds: {
-        facebook: true,
-        twitter: true,
-        linkedin: true,
-        email: true
-      }
-    }, options);
+    var spriteOption = options && options.hasOwnProperty('sprite'),
+        sprite = spriteOption ? options.sprite : 'sharetastic.svg';
+
     $.ajax({
-      url: options.sprite,
+      url: sprite,
       success: function(data) {
         $('body').prepend(data.documentElement);
       }
     });
+
     return this.each(function() {
       new Sharetastic($(this), options).build();
     });
@@ -44,42 +39,71 @@
 // Sharetastic Constructor
 // --------------------------------------------------------------------------
  var Sharetastic = function(el, options) {
-  this.el = el;
-  this.el.addClass('sharetastic');
 
-  this.options = options;
-
+  // Get page Details
   this.page = {
     url: window.location,
     title: document.title,
     description: this.getMetaContent('description')
   }
 
-  this.feeds = {
-    facebook: {
-      class: 'sharetastic__button sharetastic__button--facebook',
-      href: 'https://www.facebook.com/sharer/sharer.php?u=' + this.page.url + '&title=' + this.page.title + '&description=' + this.page.description,
-      target: '_blank',
-      icon: '<svg width="10" height="19" class="sharetastic__icon"><use xlink:href="#facebook"/></svg>'
-    },
-    twitter: {
-      class: 'sharetastic__button sharetastic__button--twitter',
-      href: 'http://twitter.com/home?status=' + this.page.title + ' - ' + this.page.description + ' - ' + this.page.url,
-      target: '_blank',
-      icon: '<svg width="18" height="14" class="sharetastic__icon"><use xlink:href="#twitter"/></svg>'
-    },
-    linkedin: {
-      class: 'sharetastic__button sharetastic__button--linkedin',
-      href: 'https://www.linkedin.com/shareArticle?mini=true&url=' + this.page.url + '&title=' + this.page.title + '&summary=' + this.page.description,
-      target: '_blank',
-      icon: '<svg width="18" height="18" class="sharetastic__icon"><use xlink:href="#linkedin"/></svg>'
-    },
-    email: {
-      class: 'sharetastic__button sharetastic__button--email',
-      href: 'mailto:?Body=%0A%0A' + this.page.title + '%0A' + this.page.description + '%0A' + this.page.url,
-      icon: '<svg width="20" height="13" class="sharetastic__icon"><use xlink:href="#email"/></svg>'
+  // Initialise the element
+  this.el = el;
+  this.el.addClass('sharetastic');
+  
+  // Extend Options
+  this.options = $.extend(true, {
+    sprite: 'sharetastic.svg',
+    popup: true,
+    services: {
+      facebook: {
+        enabled: true,
+        href: 'https://www.facebook.com/sharer/sharer.php?u=' + this.page.url + '&title=' + this.page.title + '&description=' + this.page.description,
+        icon: {
+          width: 10,
+          height: 19,
+          id: 'sharetastic-facebook'
+        }
+      },
+      twitter: {
+        enabled: true,
+        href: 'http://twitter.com/home?status=' + this.page.title + ' - ' + this.page.description + ' - ' + this.page.url,
+        icon: {
+          width: 18,
+          height: 14,
+          id: 'sharetastic-twitter'
+        }
+      },
+      linkedin: {
+        enabled: true,
+        href: 'https://www.linkedin.com/shareArticle?mini=true&url=' + this.page.url + '&title=' + this.page.title + '&summary=' + this.page.description,
+        icon: {
+          width: 18,
+          height: 18,
+          id: 'sharetastic-linkedin'
+        }
+      },
+      googleplus: {
+        enabled: true,
+        href: 'https://plus.google.com/share?url=' + this.page.url,
+        icon: {
+          width: 18,
+          height: 18,
+          id: 'sharetastic-googleplus'
+        }
+      },
+      email: {
+        enabled: true,
+        href: 'mailto:?Body=%0A%0A' + this.page.title + '%0A' + this.page.description + '%0A' + this.page.url,
+        icon: {
+          width: 20,
+          height: 13,
+          id: 'sharetastic-email'
+        }
+      }
     }
-  }
+  }, options);
+
 };
 
 
@@ -87,18 +111,20 @@
 // Build the DOM
 // --------------------------------------------------------------------------
 Sharetastic.prototype.build = function() {
-  for(var key in this.options.feeds) {
-    if(this.options.feeds[key]) {
+  for(var key in this.options.services) {
+    if(this.options.services[key].enabled) {
       var link = $('<a/>'),
+          service = this.options.services[key],
           self = this;
       link
-        .addClass(this.feeds[key].class)
-        .attr('href', this.feeds[key].href)
-        .attr('target', this.feeds[key].target)
-        .html(this.feeds[key].icon);
+        .addClass('sharetastic__button sharetastic__button--'+key)
+        .attr('href', service.href)
+        .attr('target', '_blank')
+        .html('<svg width="' + service.icon.width + '" height="' + service.icon.height + '" class="sharetastic__icon"><use xlink:href="#' + service.icon.id + '"/></svg>');
       this.el.append(link);
-      if(key != 'email') {
+      if(key !== 'email' && this.options.popup) {
         link.on('click', function() {
+          console.log('pop')
           self.popup($(this).attr('href'), 500, 300);
           return false;
         });
@@ -106,6 +132,7 @@ Sharetastic.prototype.build = function() {
     }
   }
 };
+
 
 
 // --------------------------------------------------------------------------
