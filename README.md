@@ -54,6 +54,7 @@ Sharer links are auto generated for available services by default, however you c
 - Facebook
 - Twitter
 - LinkedIn
+- Google Plus
 - Email
 
 ##Themes

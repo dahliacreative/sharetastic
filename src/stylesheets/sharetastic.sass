@@ -33,6 +33,8 @@ $sharetastic-twitter: #1da1f2 !default
 $sharetastic-twitter-hover: darken($sharetastic-twitter, 10%) !default
 $sharetastic-linkedin: #00a0dc !default
 $sharetastic-linkedin-hover: darken($sharetastic-linkedin, 10%) !default
+$sharetastic-googleplus: #c53929 !default
+$sharetastic-googleplus-hover: darken($sharetastic-googleplus, 10%) !default
 $sharetastic-email: #F70C32 !default
 $sharetastic-email-hover: darken($sharetastic-email, 10%) !default
 $sharetastic-alignment: center !default
@@ -72,30 +74,22 @@ $sharetastic-alignment: center !default
       background-color: $sharetastic-facebook
       &:hover
         background-color: $sharetastic-facebook-hover
-      .sharetastic__icon
-        width: 31.25%
-        height: auto
     &--twitter
       background-color: $sharetastic-twitter
       &:hover
         background-color: $sharetastic-twitter-hover
-      .sharetastic__icon
-        width: 56.25%
-        height: auto
     &--linkedin
       background-color: $sharetastic-linkedin
       &:hover
         background-color: $sharetastic-linkedin-hover
-      .sharetastic__icon
-        width: 56.25%
-        height: auto
+    &--googleplus
+      background-color: $sharetastic-googleplus
+      &:hover
+        background-color: $sharetastic-googleplus-hover
     &--email
       background-color: $sharetastic-email
       &:hover
         background-color: $sharetastic-email-hover
-      .sharetastic__icon
-        width: 62.5%
-        height: auto
 
   &__icon
     fill: $sharetastic-icon-fill
@@ -139,6 +133,12 @@ $sharetastic-alignment: center !default
         &:hover .sharetastic__icon
           fill: $sharetastic-linkedin-hover
 
+      &--googleplus
+        .sharetastic__icon
+          fill: $sharetastic-googleplus
+        &:hover .sharetastic__icon
+          fill: $sharetastic-googleplus-hover
+
       &--email
         .sharetastic__icon
           fill: $sharetastic-email
@@ -179,6 +179,14 @@ $sharetastic-alignment: center !default
           fill: $sharetastic-linkedin
         &:hover
           background-color: $sharetastic-linkedin-hover 
+          .sharetastic__icon
+            fill: #fff
+
+      &--googleplus
+        .sharetastic__icon
+          fill: $sharetastic-googleplus
+        &:hover
+          background-color: $sharetastic-googleplus-hover 
           .sharetastic__icon
             fill: #fff
 

@@ -83,6 +83,15 @@
           id: 'sharetastic-linkedin'
         }
       },
+      googleplus: {
+        enabled: true,
+        href: 'https://plus.google.com/share?url=' + this.page.url,
+        icon: {
+          width: 18,
+          height: 18,
+          id: 'sharetastic-googleplus'
+        }
+      },
       email: {
         enabled: true,
         href: 'mailto:?Body=%0A%0A' + this.page.title + '%0A' + this.page.description + '%0A' + this.page.url,
