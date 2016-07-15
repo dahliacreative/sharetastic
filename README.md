@@ -52,9 +52,12 @@ There are a few options you can pass when you initialize sharetastic, these are:
 ```
 Sharer links are auto generated for available services by default, however you can overwrite these if you wish to use sharetastic simply for social links. Current available services are:
 - Facebook
+- Instagram (Disabled by default, Required Param: href. To be used as social link only.)
 - Twitter
+- Pinterest
 - LinkedIn
 - Google Plus
+- Flickr (Disabled by default, Required Param: href. To be used as social link only.)
 - Email
 
 ##Themes
