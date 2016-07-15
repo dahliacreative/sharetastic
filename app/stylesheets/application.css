@@ -233,3 +233,13 @@ p {
 code {
   padding: 15px;
 }
+table th {
+  background-color: rgba(0,0,0,0.4);
+  text-align: left;
+  padding: 10px;
+}
+
+table td {
+  background-color: rgba(0,0,0,0.2);
+  padding: 10px;
+}
