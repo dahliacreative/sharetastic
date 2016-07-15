@@ -60,23 +60,59 @@
           <h2 class="heading">Options</h2>
           <div class="well">
             <p>There are a few options you can pass when you initialise sharetastic, these are:</p>
+            <table>
+              <thead>
+                <tr>
+                  <th>Option</th>
+                  <th>Description</th>
+                  <th>Default</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>sprite</td>
+                  <td>Path to sprite</td>
+                  <td>"sharetastic.svg</td>
+                </tr>
+                <tr>
+                  <td>popup</td>
+                  <td>Makes links open in a popup window</td>
+                  <td>true</td>
+                </tr>
+                <tr>
+                  <td>services</td>
+                  <td>Object of services, you can add custom ones or overwrite elements of the default services</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+
             <pre><code class="js">{
-  sprite: 'path/to/sprite',
-  customFeeds: {
-    myCustomFeed: {
-      class: 'sharetastic__button sharetastic__button--myCustomFeed',
-      href: 'http://myCustomFeed.com',
-      target: '_blank',
-      icon: '&lt;svg width=&quot;10&quot; height=&quot;19&quot; class=&quot;sharetastic__icon&quot;&gt;&lt;use xlink:href=&quot;#myCustomFeed&quot;/&gt;&lt;/svg&gt;'
+    sprite: "sharetastic.svg",
+    popup: true,
+    services: {
+      facebook: {
+        enabled: true,
+        href: 'http://facebook.com',
+        icon: {
+          width: 10,
+          height: 19,
+          id: 'sharetastic-facebook'
+        }
+      }
     }
-  },
-  feeds: {
-    facebook: true,
-    twitter: true,
-    linkedin: true,
-    email: true
-  }
-}</code></pre>
+  }</code></pre>
+          <p>Sharer links are auto generated for available services by default, however you can overwrite these if you wish to use sharetastic simply for social links. Current available services are:</p>
+          <ul>
+<li>Facebook</li>
+<li>Instagram (Disabled by default, Required Param: href. To be used as social link only.)</li>
+<li>Twitter</li>
+<li>Pinterest</li>
+<li>LinkedIn</li>
+<li>Google Plus</li>
+<li>Flickr (Disabled by default, Required Param: href. To be used as social link only.)</li>
+<li>Email</li>
+          </ul>
           </div>
         </div>
       </section>
@@ -112,19 +148,30 @@
             <p>SASS VARIABLES</p>
             <pre><code class="css">$sharetastic-font-size: 13px !default
 $sharetastic-font-color: #ccc !default
-$sharetastic-gutter: 4px !default
 $sharetastic-font: sans-serif !default
+
+$sharetastic-gutter: 4px !default
 $sharetastic-size: 32px !default
 $sharetastic-border-radius: 50% !default
 $sharetastic-icon-fill: #fff !default
+
 $sharetastic-facebook: #3a5795 !default
 $sharetastic-facebook-hover: darken($sharetastic-facebook, 10%) !default
+$sharetastic-instagram: #e1306c !default
+$sharetastic-instagram-hover: darken($sharetastic-instagram, 10%) !default
 $sharetastic-twitter: #1da1f2 !default
 $sharetastic-twitter-hover: darken($sharetastic-twitter, 10%) !default
+$sharetastic-pinterest: #bd081c !default
+$sharetastic-pinterest-hover: darken($sharetastic-pinterest, 10%) !default
 $sharetastic-linkedin: #00a0dc !default
 $sharetastic-linkedin-hover: darken($sharetastic-linkedin, 10%) !default
+$sharetastic-googleplus: #c53929 !default
+$sharetastic-googleplus-hover: darken($sharetastic-googleplus, 10%) !default
+$sharetastic-flickr: #ff0084 !default
+$sharetastic-flickr-hover: darken($sharetastic-flickr, 10%) !default
 $sharetastic-email: #F70C32 !default
 $sharetastic-email-hover: darken($sharetastic-email, 10%) !default
+
 $sharetastic-alignment: center !default</code></pre>
           </div>
         </div>
