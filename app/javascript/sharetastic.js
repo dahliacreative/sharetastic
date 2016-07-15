@@ -7,7 +7,7 @@
 // |___/_| |_|\__,_|_|  \___|\__\__,_|___/\__|_|\___|
 //
 // --------------------------------------------------------------------------
-//  Version: 1.1
+//  Version: 1.2.4
 //   Author: Simon Sturgess
 //  Website: dahliacreative.github.io/sharetastic
 //     Docs: dahliacreative.github.io/sharetastic/docs
@@ -65,6 +65,15 @@
           id: 'sharetastic-facebook'
         }
       },
+      instagram: {
+        enabled: false,
+        href: 'https://www.instagram.com/',
+        icon: {
+          width: 20,
+          height: 20,
+          id: 'sharetastic-instagram'
+        }
+      },
       twitter: {
         enabled: true,
         href: 'http://twitter.com/home?status=' + this.page.title + ' - ' + this.page.description + ' - ' + this.page.url,
@@ -72,6 +81,15 @@
           width: 18,
           height: 14,
           id: 'sharetastic-twitter'
+        }
+      },
+      pinterest: {
+        enabled: true,
+        href: 'http://pinterest.com/pin/create/link/?url=' + this.page.url + '&description=' + this.page.title + ' - ' + this.page.description,
+        icon: {
+          width: 20,
+          height: 25,
+          id: 'sharetastic-pinterest'
         }
       },
       linkedin: {
@@ -90,6 +108,15 @@
           width: 18,
           height: 18,
           id: 'sharetastic-googleplus'
+        }
+      },
+      flickr: {
+        enabled: false,
+        href: 'https://www.flicr.com/',
+        icon: {
+          width: 19,
+          height: 8,
+          id: 'sharetastic-flickr'
         }
       },
       email: {
