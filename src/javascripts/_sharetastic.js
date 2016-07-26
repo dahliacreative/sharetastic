@@ -21,12 +21,14 @@
     var spriteOption = options && options.hasOwnProperty('sprite'),
         sprite = spriteOption ? options.sprite : 'sharetastic.svg';
 
-    $.ajax({
-      url: sprite,
-      success: function(data) {
-        $('body').prepend(data.documentElement);
-      }
-    });
+    if(this.length > 0) {
+      $.ajax({
+        url: sprite,
+        success: function(data) {
+          $('body').prepend(data.documentElement);
+        }
+      });
+    }
 
     return this.each(function() {
       new Sharetastic($(this), options).build();
