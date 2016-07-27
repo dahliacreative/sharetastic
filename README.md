@@ -62,12 +62,19 @@ Sharer links are auto generated for available services by default, however you c
 - Email
 
 ##Themes
-There are three themes for sharetastic, `default` `simple` and `reversed`. To use a theme other than the default one, simply add it's modifier class like so:
+There are four themes for sharetastic, `default` `simple` `reversed` and `text`. To use a theme other than the default one, simply add it's modifier class like so:
 ```
 <div class="sharetastic sharetastic--simple"></div>
 ```
 ```
 <div class="sharetastic sharetastic--reversed"></div>
+```
+```
+<div class="sharetastic sharetastic--text"></div>
+```
+Or use a combination
+```
+<div class="sharetastic sharetastic--text sharetastic--simple"></div>
 ```
 
 ##Adding a label
