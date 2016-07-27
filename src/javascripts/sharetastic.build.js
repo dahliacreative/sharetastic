@@ -11,7 +11,7 @@ Sharetastic.prototype.build = function() {
         .addClass('sharetastic__button sharetastic__button--'+key)
         .attr('href', service.href)
         .attr('target', '_blank')
-        .html('<svg width="' + service.icon.width + '" height="' + service.icon.height + '" class="sharetastic__icon"><use xlink:href="#' + service.icon.id + '"/></svg>');
+        .html('<svg width="' + service.icon.width + '" height="' + service.icon.height + '" class="sharetastic__icon"><use xlink:href="#' + service.icon.id + '"/></svg>' + service.name);
       this.el.append(link);
       if(key !== 'email' && this.options.popup) {
         link.on('click', function() {

@@ -7,10 +7,9 @@
 // |___/_| |_|\__,_|_|  \___|\__\__,_|___/\__|_|\___|
 //
 // --------------------------------------------------------------------------
-//  Version: 1.2.4
+//  Version: 1.2.5
 //   Author: Simon Sturgess
 //  Website: dahliacreative.github.io/sharetastic
-//     Docs: dahliacreative.github.io/sharetastic/docs
 //     Repo: github.com/dahliacreative/sharetastic
 //   Issues: github.com/dahliacreative/sharetastic/issues
 // --------------------------------------------------------------------------
@@ -59,6 +58,7 @@
     popup: true,
     services: {
       facebook: {
+        name: 'Facebook',
         enabled: true,
         href: 'https://www.facebook.com/sharer/sharer.php?u=' + this.page.url + '&title=' + this.page.title + '&description=' + this.page.description,
         icon: {
@@ -68,6 +68,7 @@
         }
       },
       instagram: {
+        name: 'Instagram',
         enabled: false,
         href: 'https://www.instagram.com/',
         icon: {
@@ -77,6 +78,7 @@
         }
       },
       twitter: {
+        name: 'Twitter',
         enabled: true,
         href: 'http://twitter.com/home?status=' + this.page.title + ' - ' + this.page.description + ' - ' + this.page.url,
         icon: {
@@ -86,6 +88,7 @@
         }
       },
       pinterest: {
+        name: 'Pinterest',
         enabled: true,
         href: 'http://pinterest.com/pin/create/link/?url=' + this.page.url + '&description=' + this.page.title + ' - ' + this.page.description,
         icon: {
@@ -95,6 +98,7 @@
         }
       },
       linkedin: {
+        name: 'LinkedIn',
         enabled: true,
         href: 'https://www.linkedin.com/shareArticle?mini=true&url=' + this.page.url + '&title=' + this.page.title + '&summary=' + this.page.description,
         icon: {
@@ -104,6 +108,7 @@
         }
       },
       googleplus: {
+        name: 'Google +',
         enabled: true,
         href: 'https://plus.google.com/share?url=' + this.page.url,
         icon: {
@@ -113,15 +118,27 @@
         }
       },
       flickr: {
+        name: 'Flickr',
         enabled: false,
-        href: 'https://www.flicr.com/',
+        href: 'https://www.flickr.com/',
         icon: {
           width: 19,
           height: 8,
           id: 'sharetastic-flickr'
         }
       },
+      tumblr: {
+        name: 'Tumblr',
+        enabled: true,
+        href: 'http://www.tumblr.com/share/link?url=' + this.page.url,
+        icon: {
+          width: 10,
+          height: 18,
+          id: 'sharetastic-tumblr'
+        }
+      },
       email: {
+        name: 'Email',
         enabled: true,
         href: 'mailto:?Body=%0A%0A' + this.page.title + '%0A' + this.page.description + '%0A' + this.page.url,
         icon: {
@@ -149,7 +166,7 @@ Sharetastic.prototype.build = function() {
         .addClass('sharetastic__button sharetastic__button--'+key)
         .attr('href', service.href)
         .attr('target', '_blank')
-        .html('<svg width="' + service.icon.width + '" height="' + service.icon.height + '" class="sharetastic__icon"><use xlink:href="#' + service.icon.id + '"/></svg>');
+        .html('<svg width="' + service.icon.width + '" height="' + service.icon.height + '" class="sharetastic__icon"><use xlink:href="#' + service.icon.id + '"/></svg>' + service.name);
       this.el.append(link);
       if(key !== 'email' && this.options.popup) {
         link.on('click', function() {

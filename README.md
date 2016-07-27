@@ -57,6 +57,7 @@ Sharer links are auto generated for available services by default, however you c
 - Pinterest
 - LinkedIn
 - Google Plus
+- Tumblr
 - Flickr (Disabled by default, Required Param: href. To be used as social link only.)
 - Email
 

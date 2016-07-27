@@ -7,10 +7,9 @@
 // |___/_| |_|\__,_|_|  \___|\__\__,_|___/\__|_|\___|
 //
 // --------------------------------------------------------------------------
-//  Version: 1.2.4
+//  Version: 1.2.5
 //   Author: Simon Sturgess
 //  Website: dahliacreative.github.io/sharetastic
-//     Docs: dahliacreative.github.io/sharetastic/docs
 //     Repo: github.com/dahliacreative/sharetastic
 //   Issues: github.com/dahliacreative/sharetastic/issues
 // --------------------------------------------------------------------------
@@ -24,7 +23,10 @@ $sharetastic-font-size: 13px !default
 $sharetastic-font-color: #ccc !default
 $sharetastic-gutter: 4px !default
 $sharetastic-font: sans-serif !default
+$sharetastic-text-transform: capitalize !default
 $sharetastic-size: 32px !default
+$sharetastic-padding: 5px 10px !default
+$sharetastic-icon-margin: 10px !default
 $sharetastic-border-radius: 50% !default
 $sharetastic-icon-fill: #fff !default
 $sharetastic-facebook: #3a5795 !default
@@ -39,6 +41,8 @@ $sharetastic-linkedin: #00a0dc !default
 $sharetastic-linkedin-hover: darken($sharetastic-linkedin, 10%) !default
 $sharetastic-googleplus: #c53929 !default
 $sharetastic-googleplus-hover: darken($sharetastic-googleplus, 10%) !default
+$sharetastic-tumblr: #35465c !default
+$sharetastic-tumblr-hover: darken($sharetastic-tumblr, 10%) !default
 $sharetastic-flickr: #ff0084 !default
 $sharetastic-flickr-hover: darken($sharetastic-flickr, 10%) !default
 $sharetastic-email: #F70C32 !default
@@ -55,6 +59,7 @@ $sharetastic-alignment: center !default
   font-family: $sharetastic-font
   font-size: $sharetastic-font-size
   text-align: center
+  text-transform: $sharetastic-text-transform
   display: -webkit-box
   display: -ms-flexbox
   display: -webkit-flex
@@ -74,7 +79,7 @@ $sharetastic-alignment: center !default
     text-indent: -100%
     vertical-align: middle
     width: $sharetastic-size
-    transition: background-color 0.3s
+    transition: background-color 0.3s, color 0.3s
 
     &--facebook
       background-color: $sharetastic-facebook
@@ -128,6 +133,14 @@ $sharetastic-alignment: center !default
         width: 70%
         height: auto
 
+    &--tumblr
+      background-color: $sharetastic-tumblr
+      &:hover
+        background-color: $sharetastic-tumblr-hover
+      .sharetastic__icon
+        width: 30%
+        height: auto
+
     &--flickr
       background-color: $sharetastic-flickr
       &:hover
@@ -159,13 +172,14 @@ $sharetastic-alignment: center !default
   // Simple Theme
   // ------------------------------------------------------------------------
   
-  &--simple &
+  &--simple &,
+  &--simple.sharetastic--reversed &
 
     &__icon
       transition: fill 0.3s
 
     &__button
-      background-color: transparent
+      background-color: transparent !important
       border-radius: 0
 
       &--facebook
@@ -204,6 +218,12 @@ $sharetastic-alignment: center !default
         &:hover .sharetastic__icon
           fill: $sharetastic-googleplus-hover
 
+      &--tumblr
+        .sharetastic__icon
+          fill: $sharetastic-tumblr
+        &:hover .sharetastic__icon
+          fill: $sharetastic-tumblr-hover
+
       &--flickr
         .sharetastic__icon
           fill: $sharetastic-flickr
@@ -218,18 +238,22 @@ $sharetastic-alignment: center !default
 
 
   // ------------------------------------------------------------------------
-  // Simple Theme
+  // Reversed Theme
   // ------------------------------------------------------------------------
   
-  &--reversed &
+  &--reversed &,
+  &--reversed.sharetastic--text &
 
     &__icon
       transition: fill 0.3s
 
     &__button
       background-color: #fff
+      &:hover
+        color: #fff
 
       &--facebook
+        color: $sharetastic-facebook
         .sharetastic__icon
           fill: $sharetastic-facebook
         &:hover
@@ -238,6 +262,7 @@ $sharetastic-alignment: center !default
             fill: #fff
 
       &--instagram
+        color: $sharetastic-instagram
         .sharetastic__icon
           fill: $sharetastic-instagram
         &:hover
@@ -246,6 +271,7 @@ $sharetastic-alignment: center !default
             fill: #fff
 
       &--twitter
+        color: $sharetastic-twitter
         .sharetastic__icon
           fill: $sharetastic-twitter
         &:hover
@@ -254,6 +280,7 @@ $sharetastic-alignment: center !default
             fill: #fff
 
       &--pinterest
+        color: $sharetastic-pinterest
         .sharetastic__icon
           fill: $sharetastic-pinterest
         &:hover
@@ -262,6 +289,7 @@ $sharetastic-alignment: center !default
             fill: #fff
 
       &--linkedin
+        color: $sharetastic-linkedin
         .sharetastic__icon
           fill: $sharetastic-linkedin
         &:hover
@@ -270,6 +298,7 @@ $sharetastic-alignment: center !default
             fill: #fff
 
       &--googleplus
+        color: $sharetastic-googleplus
         .sharetastic__icon
           fill: $sharetastic-googleplus
         &:hover
@@ -277,7 +306,17 @@ $sharetastic-alignment: center !default
           .sharetastic__icon
             fill: #fff
 
+      &--tumblr
+        color: $sharetastic-tumblr
+        .sharetastic__icon
+          fill: $sharetastic-tumblr
+        &:hover
+          background-color: $sharetastic-tumblr-hover 
+          .sharetastic__icon
+            fill: #fff
+
       &--flickr
+        color: $sharetastic-flickr
         .sharetastic__icon
           fill: $sharetastic-flickr
         &:hover
@@ -286,9 +325,90 @@ $sharetastic-alignment: center !default
             fill: #fff
 
       &--email
+        color: $sharetastic-email
         .sharetastic__icon
           fill: $sharetastic-email
         &:hover
           background-color: $sharetastic-email-hover 
           .sharetastic__icon
             fill: #fff
+
+
+  // ------------------------------------------------------------------------
+  // Text Theme
+  // ------------------------------------------------------------------------
+  
+  &--text &
+
+    &__button
+      border-radius: $sharetastic-border-radius
+      color: #fff
+      height: auto
+      padding: $sharetastic-padding
+      text-decoration: none
+      text-indent: 0
+      width: auto
+      -ms-align-items: center
+      align-items: center
+      display: -webkit-box
+      display: -ms-flexbox
+      display: -webkit-flex
+      display: flex
+
+    &__icon
+      margin-right: $sharetastic-icon-margin
+      position: static
+      width: auto
+      -webkit-transform: none
+      -ms-transform: none
+      -o-transform: none
+      transform: none
+
+  &--text
+    &.sharetastic--simple
+      .sharetastic__button
+        &--facebook
+          color: $sharetastic-facebook
+          &:hover
+            color: $sharetastic-facebook-hover
+
+        &--instagram
+          color: $sharetastic-instagram
+          &:hover
+            color: $sharetastic-instagram-hover
+
+        &--twitter
+          color: $sharetastic-twitter
+          &:hover
+            color: $sharetastic-twitter-hover
+
+        &--pinterest
+          color: $sharetastic-pinterest
+          &:hover
+            color: $sharetastic-pinterest-hover
+
+        &--linkedin
+          color: $sharetastic-linkedin
+          &:hover
+            color: $sharetastic-linkedin-hover
+
+        &--googleplus
+          color: $sharetastic-googleplus
+          &:hover
+            color: $sharetastic-googleplus-hover
+
+        &--tumblr
+          color: $sharetastic-tumblr
+          &:hover
+            color: $sharetastic-tumblr-hover
+
+        &--flickr
+          color: $sharetastic-flickr
+          &:hover
+            color: $sharetastic-flickr-hover
+
+        &--email
+          color: $sharetastic-email
+          &:hover
+            color: $sharetastic-email-hover
+        
