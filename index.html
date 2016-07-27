@@ -126,6 +126,7 @@
             <p>There are three themes for sharetastic, <code>default</code> <code>simple</code> <code>reversed</code> and <code>text</code>. To use a theme other than the default one, simply add it's modifier class like so:</p>
             <pre><code class="html">&lt;div class=&quot;sharetastic sharetastic--simple&quot;&gt;&lt;/div&gt;</code></pre>
             <pre><code class="html">&lt;div class=&quot;sharetastic sharetastic--reversed&quot;&gt;&lt;/div&gt;</code></pre>
+            <pre><code class="html">&lt;div class=&quot;sharetastic sharetastic--text&quot;&gt;&lt;/div&gt;</code></pre>
             <p>Or use a combination:</p>
             <pre><code class="html">&lt;div class=&quot;sharetastic sharetastic--simple sharetastic--text&quot;&gt;&lt;/div&gt;</code></pre>
           </div>
@@ -153,9 +154,13 @@
             <pre><code class="css">$sharetastic-font-size: 13px !default
 $sharetastic-font-color: #ccc !default
 $sharetastic-font: sans-serif !default
+$sharetastic-text-transform: capitalize !default
 
+$sharetastic-alignment: center !default
 $sharetastic-gutter: 4px !default
 $sharetastic-size: 32px !default
+$sharetastic-padding: 5px 10px !default
+$sharetastic-icon-margin: 10px !default
 $sharetastic-border-radius: 50% !default
 $sharetastic-icon-fill: #fff !default
 
@@ -171,12 +176,12 @@ $sharetastic-linkedin: #00a0dc !default
 $sharetastic-linkedin-hover: darken($sharetastic-linkedin, 10%) !default
 $sharetastic-googleplus: #c53929 !default
 $sharetastic-googleplus-hover: darken($sharetastic-googleplus, 10%) !default
+$sharetastic-tumblr: #35465c !default
+$sharetastic-tumblr-hover: darken($sharetastic-tumblr, 10%) !default
 $sharetastic-flickr: #ff0084 !default
 $sharetastic-flickr-hover: darken($sharetastic-flickr, 10%) !default
 $sharetastic-email: #F70C32 !default
-$sharetastic-email-hover: darken($sharetastic-email, 10%) !default
-
-$sharetastic-alignment: center !default</code></pre>
+$sharetastic-email-hover: darken($sharetastic-email, 10%) !default</code></pre>
           </div>
         </div>
       </section>
