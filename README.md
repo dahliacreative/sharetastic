@@ -61,6 +61,7 @@ Sharer links are auto generated for available services by default, however you c
 - Tumblr
 - Flickr (Disabled by default, Required Param: href. To be used as social link only.)
 - Email
+- Print
 
 ##Themes
 There are four themes for sharetastic, `default` `simple` `reversed` and `text`. To use a theme other than the default one, simply add it's modifier class like so:

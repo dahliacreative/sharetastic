@@ -7,7 +7,7 @@
 // |___/_| |_|\__,_|_|  \___|\__\__,_|___/\__|_|\___|
 //
 // --------------------------------------------------------------------------
-//  Version: 1.2.5
+//  Version: 1.2.6
 //   Author: Simon Sturgess
 //  Website: dahliacreative.github.io/sharetastic
 //     Repo: github.com/dahliacreative/sharetastic
@@ -28,7 +28,7 @@ $sharetastic-alignment: center !default
 $sharetastic-gutter: 4px !default
 $sharetastic-size: 32px !default
 $sharetastic-padding: 5px 10px !default
-$sharetastic-icon-margin: 10px !default
+$sharetastic-icon-margin: 0px !default
 $sharetastic-border-radius: 50% !default
 $sharetastic-icon-fill: #fff !default
 
@@ -48,8 +48,13 @@ $sharetastic-tumblr: #35465c !default
 $sharetastic-tumblr-hover: darken($sharetastic-tumblr, 10%) !default
 $sharetastic-flickr: #ff0084 !default
 $sharetastic-flickr-hover: darken($sharetastic-flickr, 10%) !default
-$sharetastic-email: #F70C32 !default
+$sharetastic-email: #b8213b !default
 $sharetastic-email-hover: darken($sharetastic-email, 10%) !default
+$sharetastic-print: #0058a1 !default
+$sharetastic-print-hover: darken($sharetastic-print, 10%) !default
+
+
+$services: ((facebook, $sharetastic-facebook, $sharetastic-facebook-hover),(twitter, $sharetastic-twitter, $sharetastic-twitter-hover),(googleplus, $sharetastic-googleplus, $sharetastic-googleplus-hover),(linkedin, $sharetastic-linkedin, $sharetastic-linkedin-hover),(pinterest, $sharetastic-pinterest, $sharetastic-pinterest-hover),(tumblr, $sharetastic-tumblr, $sharetastic-tumblr-hover),(flickr, $sharetastic-flickr, $sharetastic-flickr-hover),(email, $sharetastic-email, $sharetastic-email-hover),(print, $sharetastic-print, $sharetastic-print-hover))
 
 
 // --------------------------------------------------------------------------
@@ -66,104 +71,45 @@ $sharetastic-email-hover: darken($sharetastic-email, 10%) !default
   display: -ms-flexbox
   display: -webkit-flex
   display: flex
+  -webkit-flex-wrap: webkit-wrap
+  -moz-flex-wrap: moz-wrap
+  -ms-flex-wrap: ms-wrap
+  -o-flex-wrap: o-wrap
+  flex-wrap: wrap
   -webkit-justify-content: $sharetastic-alignment
   -moz-justify-content: $sharetastic-alignment
   -ms-justify-content: $sharetastic-alignment
   -o-justify-content: $sharetastic-alignment
   justify-content: $sharetastic-alignment
+
+  &__svg
+    display: none
   
   &__button
     position: relative
     border-radius: $sharetastic-border-radius
+    cursor: pointer
     height: $sharetastic-size
-    margin: 0 $sharetastic-gutter/2
+    margin: $sharetastic-gutter/2
     overflow: hidden
     text-indent: -100%
     vertical-align: middle
     width: $sharetastic-size
     transition: background-color 0.3s, color 0.3s
 
-    &--facebook
-      background-color: $sharetastic-facebook
-      &:hover
-        background-color: $sharetastic-facebook-hover
-      .sharetastic__icon
-        width: 31.25%
-        height: auto
-
-    &--instagram
-      background-color: $sharetastic-instagram
-      &:hover
-        background-color: $sharetastic-instagram-hover
-      .sharetastic__icon
-        width: 60%
-        height: auto
-
-    &--twitter
-      background-color: $sharetastic-twitter
-      &:hover
-        background-color: $sharetastic-twitter-hover
-      .sharetastic__icon
-        width: 56.25%
-        height: auto
-
-    &--pinterest
-      background-color: $sharetastic-pinterest
-      &:hover
-        background-color: $sharetastic-pinterest-hover
-      .sharetastic__icon
-        width: 56.25%
-        height: auto
-        -webkit-transform: translate(-50%, -40%)
-        -ms-transform: translate(-50%, -40%)
-        -o-transform: translate(-50%, -40%)
-        transform: translate(-50%, -40%)
-
-    &--linkedin
-      background-color: $sharetastic-linkedin
-      &:hover
-        background-color: $sharetastic-linkedin-hover
-      .sharetastic__icon
-        width: 54%
-        height: auto
-
-    &--googleplus
-      background-color: $sharetastic-googleplus
-      &:hover
-        background-color: $sharetastic-googleplus-hover
-      .sharetastic__icon
-        width: 70%
-        height: auto
-
-    &--tumblr
-      background-color: $sharetastic-tumblr
-      &:hover
-        background-color: $sharetastic-tumblr-hover
-      .sharetastic__icon
-        width: 30%
-        height: auto
-
-    &--flickr
-      background-color: $sharetastic-flickr
-      &:hover
-        background-color: $sharetastic-flickr-hover
-      .sharetastic__icon
-        width: 70%
-        height: auto
-
-    &--email
-      background-color: $sharetastic-email
-      &:hover
-        background-color: $sharetastic-email-hover
-      .sharetastic__icon
-        width: 62%
-        height: auto
+    @each $service in $services
+      &--#{nth($service, 1)}
+        background-color: nth($service, 2)
+        &:hover
+          background-color: nth($service, 3)
 
   &__icon
     fill: $sharetastic-icon-fill
+    height: auto
+    left: 50%
     position: absolute
     top: 50%
-    left: 50%
+    width: 100%
     -webkit-transform: translate(-50%, -50%)
     -ms-transform: translate(-50%, -50%)
     -o-transform: translate(-50%, -50%)
@@ -184,59 +130,12 @@ $sharetastic-email-hover: darken($sharetastic-email, 10%) !default
       background-color: transparent !important
       border-radius: 0
 
-      &--facebook
-        .sharetastic__icon
-          fill: $sharetastic-facebook
-        &:hover .sharetastic__icon
-          fill: $sharetastic-facebook-hover
-
-      &--instagram
-        .sharetastic__icon
-          fill: $sharetastic-instagram
-        &:hover .sharetastic__icon
-          fill: $sharetastic-instagram-hover
-
-      &--twitter
-        .sharetastic__icon
-          fill: $sharetastic-twitter
-        &:hover .sharetastic__icon
-          fill: $sharetastic-twitter-hover
-
-      &--pinterest
-        .sharetastic__icon
-          fill: $sharetastic-pinterest
-        &:hover .sharetastic__icon
-          fill: $sharetastic-pinterest-hover
-
-      &--linkedin
-        .sharetastic__icon
-          fill: $sharetastic-linkedin
-        &:hover .sharetastic__icon
-          fill: $sharetastic-linkedin-hover
-
-      &--googleplus
-        .sharetastic__icon
-          fill: $sharetastic-googleplus
-        &:hover .sharetastic__icon
-          fill: $sharetastic-googleplus-hover
-
-      &--tumblr
-        .sharetastic__icon
-          fill: $sharetastic-tumblr
-        &:hover .sharetastic__icon
-          fill: $sharetastic-tumblr-hover
-
-      &--flickr
-        .sharetastic__icon
-          fill: $sharetastic-flickr
-        &:hover .sharetastic__icon
-          fill: $sharetastic-flickr-hover
-
-      &--email
-        .sharetastic__icon
-          fill: $sharetastic-email
-        &:hover .sharetastic__icon
-          fill: $sharetastic-email-hover
+      @each $service in $services
+        &--#{nth($service, 1)}
+          .sharetastic__icon
+            fill: nth($service, 2)
+          &:hover .sharetastic__icon
+            fill: nth($service, 3)
 
 
   // ------------------------------------------------------------------------
@@ -254,86 +153,15 @@ $sharetastic-email-hover: darken($sharetastic-email, 10%) !default
       &:hover
         color: #fff
 
-      &--facebook
-        color: $sharetastic-facebook
-        .sharetastic__icon
-          fill: $sharetastic-facebook
-        &:hover
-          background-color: $sharetastic-facebook-hover 
+      @each $service in $services
+        &--#{nth($service, 1)}
+          color: nth($service, 2)
           .sharetastic__icon
-            fill: #fff
-
-      &--instagram
-        color: $sharetastic-instagram
-        .sharetastic__icon
-          fill: $sharetastic-instagram
-        &:hover
-          background-color: $sharetastic-instagram-hover 
-          .sharetastic__icon
-            fill: #fff
-
-      &--twitter
-        color: $sharetastic-twitter
-        .sharetastic__icon
-          fill: $sharetastic-twitter
-        &:hover
-          background-color: $sharetastic-twitter-hover 
-          .sharetastic__icon
-            fill: #fff
-
-      &--pinterest
-        color: $sharetastic-pinterest
-        .sharetastic__icon
-          fill: $sharetastic-pinterest
-        &:hover
-          background-color: $sharetastic-pinterest-hover 
-          .sharetastic__icon
-            fill: #fff
-
-      &--linkedin
-        color: $sharetastic-linkedin
-        .sharetastic__icon
-          fill: $sharetastic-linkedin
-        &:hover
-          background-color: $sharetastic-linkedin-hover 
-          .sharetastic__icon
-            fill: #fff
-
-      &--googleplus
-        color: $sharetastic-googleplus
-        .sharetastic__icon
-          fill: $sharetastic-googleplus
-        &:hover
-          background-color: $sharetastic-googleplus-hover 
-          .sharetastic__icon
-            fill: #fff
-
-      &--tumblr
-        color: $sharetastic-tumblr
-        .sharetastic__icon
-          fill: $sharetastic-tumblr
-        &:hover
-          background-color: $sharetastic-tumblr-hover 
-          .sharetastic__icon
-            fill: #fff
-
-      &--flickr
-        color: $sharetastic-flickr
-        .sharetastic__icon
-          fill: $sharetastic-flickr
-        &:hover
-          background-color: $sharetastic-flickr-hover 
-          .sharetastic__icon
-            fill: #fff
-
-      &--email
-        color: $sharetastic-email
-        .sharetastic__icon
-          fill: $sharetastic-email
-        &:hover
-          background-color: $sharetastic-email-hover 
-          .sharetastic__icon
-            fill: #fff
+            fill: nth($service, 2)
+          &:hover
+            background-color: nth($service, 2)
+            .sharetastic__icon
+              fill: #fff
 
 
   // ------------------------------------------------------------------------
@@ -366,51 +194,29 @@ $sharetastic-email-hover: darken($sharetastic-email, 10%) !default
       -o-transform: none
       transform: none
 
+    @media(max-width: 1023px)
+
+      &__button
+        display: block
+        text-indent: -100%
+        padding: 0
+        height: $sharetastic-size
+        width: $sharetastic-size
+
+      &__icon
+        position: absolute
+        -webkit-transform: translate(-50%, -50%)
+        -ms-transform: translate(-50%, -50%)
+        -o-transform: translate(-50%, -50%)
+        transform: translate(-50%, -50%)
+
   &--text
     &.sharetastic--simple
       .sharetastic__button
-        &--facebook
-          color: $sharetastic-facebook
-          &:hover
-            color: $sharetastic-facebook-hover
 
-        &--instagram
-          color: $sharetastic-instagram
-          &:hover
-            color: $sharetastic-instagram-hover
-
-        &--twitter
-          color: $sharetastic-twitter
-          &:hover
-            color: $sharetastic-twitter-hover
-
-        &--pinterest
-          color: $sharetastic-pinterest
-          &:hover
-            color: $sharetastic-pinterest-hover
-
-        &--linkedin
-          color: $sharetastic-linkedin
-          &:hover
-            color: $sharetastic-linkedin-hover
-
-        &--googleplus
-          color: $sharetastic-googleplus
-          &:hover
-            color: $sharetastic-googleplus-hover
-
-        &--tumblr
-          color: $sharetastic-tumblr
-          &:hover
-            color: $sharetastic-tumblr-hover
-
-        &--flickr
-          color: $sharetastic-flickr
-          &:hover
-            color: $sharetastic-flickr-hover
-
-        &--email
-          color: $sharetastic-email
-          &:hover
-            color: $sharetastic-email-hover
+        @each $service in $services
+          &--#{nth($service, 1)}
+            color: nth($service, 2)
+            &:hover
+              color: nth($service, 3)
         

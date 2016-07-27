@@ -7,7 +7,7 @@
 // |___/_| |_|\__,_|_|  \___|\__\__,_|___/\__|_|\___|
 //
 // --------------------------------------------------------------------------
-//  Version: 1.2.5
+//  Version: 1.2.6
 //   Author: Simon Sturgess
 //  Website: dahliacreative.github.io/sharetastic
 //     Repo: github.com/dahliacreative/sharetastic
@@ -25,6 +25,9 @@
         url: sprite,
         success: function(data) {
           $('body').prepend(data.documentElement);
+        },
+        error: function(e) {
+          console.log('SHARETASTIC ERROR\nStatus: ' + e.status + '\n' + sprite + ' - ' + e.statusText);
         }
       });
     }
@@ -62,8 +65,8 @@
         enabled: true,
         href: 'https://www.facebook.com/sharer/sharer.php?u=' + this.page.url + '&title=' + this.page.title + '&description=' + this.page.description,
         icon: {
-          width: 10,
-          height: 19,
+          width: 32,
+          height: 32,
           id: 'sharetastic-facebook'
         }
       },
@@ -72,8 +75,8 @@
         enabled: false,
         href: 'https://www.instagram.com/',
         icon: {
-          width: 20,
-          height: 20,
+          width: 32,
+          height: 32,
           id: 'sharetastic-instagram'
         }
       },
@@ -82,8 +85,8 @@
         enabled: true,
         href: 'http://twitter.com/home?status=' + this.page.title + ' - ' + this.page.description + ' - ' + this.page.url,
         icon: {
-          width: 18,
-          height: 14,
+          width: 32,
+          height: 32,
           id: 'sharetastic-twitter'
         }
       },
@@ -92,8 +95,8 @@
         enabled: true,
         href: 'http://pinterest.com/pin/create/link/?url=' + this.page.url + '&description=' + this.page.title + ' - ' + this.page.description,
         icon: {
-          width: 20,
-          height: 25,
+          width: 32,
+          height: 32,
           id: 'sharetastic-pinterest'
         }
       },
@@ -102,8 +105,8 @@
         enabled: true,
         href: 'https://www.linkedin.com/shareArticle?mini=true&url=' + this.page.url + '&title=' + this.page.title + '&summary=' + this.page.description,
         icon: {
-          width: 18,
-          height: 18,
+          width: 32,
+          height: 32,
           id: 'sharetastic-linkedin'
         }
       },
@@ -112,8 +115,8 @@
         enabled: true,
         href: 'https://plus.google.com/share?url=' + this.page.url,
         icon: {
-          width: 18,
-          height: 18,
+          width: 32,
+          height: 32,
           id: 'sharetastic-googleplus'
         }
       },
@@ -122,8 +125,8 @@
         enabled: false,
         href: 'https://www.flickr.com/',
         icon: {
-          width: 19,
-          height: 8,
+          width: 32,
+          height: 32,
           id: 'sharetastic-flickr'
         }
       },
@@ -132,8 +135,8 @@
         enabled: true,
         href: 'http://www.tumblr.com/share/link?url=' + this.page.url,
         icon: {
-          width: 10,
-          height: 18,
+          width: 32,
+          height: 32,
           id: 'sharetastic-tumblr'
         }
       },
@@ -142,9 +145,19 @@
         enabled: true,
         href: 'mailto:?Body=%0A%0A' + this.page.title + '%0A' + this.page.description + '%0A' + this.page.url,
         icon: {
-          width: 20,
-          height: 13,
+          width: 32,
+          height: 32,
           id: 'sharetastic-email'
+        }
+      },
+      print: {
+        name: 'Print',
+        enabled: true,
+        href: 'window.print()',
+        icon: {
+          width: 32,
+          height: 32,
+          id: 'sharetastic-print'
         }
       }
     }
@@ -161,16 +174,16 @@ Sharetastic.prototype.build = function() {
     if(this.options.services[key].enabled) {
       var link = $('<a/>'),
           service = this.options.services[key],
-          self = this;
+          self = this,
+          action = key === 'print' ? 'onclick' : 'href';
       link
         .addClass('sharetastic__button sharetastic__button--'+key)
-        .attr('href', service.href)
+        .attr(action, service.href)
         .attr('target', '_blank')
         .html('<svg width="' + service.icon.width + '" height="' + service.icon.height + '" class="sharetastic__icon"><use xlink:href="#' + service.icon.id + '"/></svg>' + service.name);
       this.el.append(link);
-      if(key !== 'email' && this.options.popup) {
+      if(key !== 'email' && key !== 'print' && this.options.popup) {
         link.on('click', function() {
-          console.log('pop')
           self.popup($(this).attr('href'), 500, 300);
           return false;
         });
@@ -178,7 +191,6 @@ Sharetastic.prototype.build = function() {
     }
   }
 };
-
 
 
 // --------------------------------------------------------------------------
