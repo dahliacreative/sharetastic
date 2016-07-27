@@ -7,7 +7,7 @@
 // |___/_| |_|\__,_|_|  \___|\__\__,_|___/\__|_|\___|
 //
 // --------------------------------------------------------------------------
-//  Version: 1.2.6
+//  Version: 1.2.7
 //   Author: Simon Sturgess
 //  Website: dahliacreative.github.io/sharetastic
 //     Repo: github.com/dahliacreative/sharetastic
@@ -86,16 +86,17 @@ $services: ((facebook, $sharetastic-facebook, $sharetastic-facebook-hover),(twit
     display: none
   
   &__button
-    position: relative
     border-radius: $sharetastic-border-radius
     cursor: pointer
+    display: block
     height: $sharetastic-size
     margin: $sharetastic-gutter/2
     overflow: hidden
+    position: relative
     text-indent: -100%
+    transition: background-color 0.3s, color 0.3s
     vertical-align: middle
     width: $sharetastic-size
-    transition: background-color 0.3s, color 0.3s
 
     @each $service in $services
       &--#{nth($service, 1)}
