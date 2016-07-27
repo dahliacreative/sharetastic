@@ -39,6 +39,7 @@ There are a few options you can pass when you initialize sharetastic, these are:
     popup: true,
     services: {
       facebook: {
+        name: 'Facebook',
         enabled: true,
         href: 'http://facebook.com',
         icon: {
