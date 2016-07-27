@@ -94,9 +94,13 @@ Sharetastic has been written to be easily customized using Sass variables. To ov
 $sharetastic-font-size: 13px !default
 $sharetastic-font-color: #ccc !default
 $sharetastic-font: sans-serif !default
+$sharetastic-text-transform: capitalize !default
 
+$sharetastic-alignment: center !default
 $sharetastic-gutter: 4px !default
 $sharetastic-size: 32px !default
+$sharetastic-padding: 5px 10px !default
+$sharetastic-icon-margin: 10px !default
 $sharetastic-border-radius: 50% !default
 $sharetastic-icon-fill: #fff !default
 
@@ -112,12 +116,12 @@ $sharetastic-linkedin: #00a0dc !default
 $sharetastic-linkedin-hover: darken($sharetastic-linkedin, 10%) !default
 $sharetastic-googleplus: #c53929 !default
 $sharetastic-googleplus-hover: darken($sharetastic-googleplus, 10%) !default
+$sharetastic-tumblr: #35465c !default
+$sharetastic-tumblr-hover: darken($sharetastic-tumblr, 10%) !default
 $sharetastic-flickr: #ff0084 !default
 $sharetastic-flickr-hover: darken($sharetastic-flickr, 10%) !default
 $sharetastic-email: #F70C32 !default
 $sharetastic-email-hover: darken($sharetastic-email, 10%) !default
-
-$sharetastic-alignment: center !default
 ```
 
 ##License
