@@ -93,10 +93,11 @@ $services: ((facebook, $sharetastic-facebook, $sharetastic-facebook-hover),(twit
     margin: $sharetastic-gutter/2
     overflow: hidden
     position: relative
-    text-indent: -100%
+    text-indent: 100%
     transition: background-color 0.3s, color 0.3s
     vertical-align: middle
     width: $sharetastic-size
+    white-space: nowrap
 
     @each $service in $services
       &--#{nth($service, 1)}
@@ -179,6 +180,7 @@ $services: ((facebook, $sharetastic-facebook, $sharetastic-facebook-hover),(twit
       text-decoration: none
       text-indent: 0
       width: auto
+      white-space: normal
       -ms-align-items: center
       align-items: center
       display: -webkit-box
