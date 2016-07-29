@@ -97,6 +97,8 @@ $services: ((facebook, $sharetastic-facebook, $sharetastic-facebook-hover),(twit
     transition: background-color 0.3s, color 0.3s
     vertical-align: middle
     width: $sharetastic-size
+    font-size: 0px
+    color: transparent
 
     @each $service in $services
       &--#{nth($service, 1)}
