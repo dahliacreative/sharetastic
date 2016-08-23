@@ -7,7 +7,7 @@
 // |___/_| |_|\__,_|_|  \___|\__\__,_|___/\__|_|\___|
 //
 // --------------------------------------------------------------------------
-//  Version: 1.3.1
+//  Version: 1.3.2
 //   Author: Simon Sturgess
 //  Website: dahliacreative.github.io/sharetastic
 //     Repo: github.com/dahliacreative/sharetastic
@@ -84,7 +84,7 @@
       twitter: {
         name: 'Twitter',
         enabled: true,
-        href: 'http://twitter.com/home?status=' + this.page.title + ' - ' + this.page.description + ' - ' + this.page.url,
+        href: 'http://twitter.com/home?status=' + this.page.title + ' - ' + this.page.url,
         icon: {
           width: 32,
           height: 32,
