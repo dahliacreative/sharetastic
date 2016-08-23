@@ -14,6 +14,14 @@ bower install --save jquery-sharetastic
 ##Usage
 
 ###HTML
+Sharetastic makes use of the default OpenGraph meta tags to construct it's URLs:
+```
+<meta property="og:title" content="Title for your page" />
+<meta property="og:description" content="Description for your page" />
+<meta property="og:url" content="http://url/of/your/page" />
+<meta property="og:image" content="https://path/to/the/main/image/for/your/page" />
+```
+You then just need a container somewhere in your body:
 ```
 <div class="sharetastic"></div>
 ```

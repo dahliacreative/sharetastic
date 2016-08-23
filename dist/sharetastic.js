@@ -7,7 +7,7 @@
 // |___/_| |_|\__,_|_|  \___|\__\__,_|___/\__|_|\___|
 //
 // --------------------------------------------------------------------------
-//  Version: 1.2.7
+//  Version: 1.2.8
 //   Author: Simon Sturgess
 //  Website: dahliacreative.github.io/sharetastic
 //     Repo: github.com/dahliacreative/sharetastic
@@ -46,9 +46,10 @@
 
   // Get page Details
   this.page = {
-    url: window.location,
-    title: document.title,
-    description: this.getMetaContent('description')
+    url: this.getMetaContent('og:url'),
+    title: this.getMetaContent('og:title'),
+    description: this.getMetaContent('og:description'),
+    image: this.getMetaContent('og:image')
   }
 
   // Initialise the element
@@ -93,7 +94,7 @@
       pinterest: {
         name: 'Pinterest',
         enabled: true,
-        href: 'http://pinterest.com/pin/create/link/?url=' + this.page.url + '&description=' + this.page.title + ' - ' + this.page.description,
+        href: 'http://pinterest.com/pin/create/link/?url=' + this.page.url + '&description=' + this.page.title + ' - ' + this.page.description + '&media=' + this.page.image,
         icon: {
           width: 32,
           height: 32,
@@ -133,7 +134,7 @@
       tumblr: {
         name: 'Tumblr',
         enabled: true,
-        href: 'http://www.tumblr.com/share/link?url=' + this.page.url,
+        href: 'http://www.tumblr.com/share/link?url=' + this.page.url + '&name=' + this.page.title + '&description=' + this.page.description,
         icon: {
           width: 32,
           height: 32,
@@ -199,8 +200,8 @@ Sharetastic.prototype.build = function() {
 Sharetastic.prototype.getMetaContent = function(propName) {
   var metas = document.getElementsByTagName('meta');
   for(var i = 0; i < metas.length; i++) {
-    var name = metas[i].getAttribute("name");
-    if(name == propName) {
+    var property = metas[i].getAttribute("property");
+    if(property == propName) {
       return metas[i].getAttribute("content");
     }
   }
