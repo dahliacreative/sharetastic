@@ -118,7 +118,7 @@ $sharetastic-alignment: center !default
 $sharetastic-gutter: 4px !default
 $sharetastic-size: 32px !default
 $sharetastic-padding: 5px 10px !default
-$sharetastic-icon-margin: 10px !default
+$sharetastic-icon-margin: 0px !default
 $sharetastic-border-radius: 50% !default
 $sharetastic-icon-fill: #fff !default
 
@@ -130,7 +130,7 @@ $sharetastic-twitter: #1da1f2 !default
 $sharetastic-twitter-hover: darken($sharetastic-twitter, 10%) !default
 $sharetastic-pinterest: #bd081c !default
 $sharetastic-pinterest-hover: darken($sharetastic-pinterest, 10%) !default
-$sharetastic-linkedin: #00a0dc !default
+$sharetastic-linkedin: #0077b5 !default
 $sharetastic-linkedin-hover: darken($sharetastic-linkedin, 10%) !default
 $sharetastic-googleplus: #c53929 !default
 $sharetastic-googleplus-hover: darken($sharetastic-googleplus, 10%) !default
@@ -138,8 +138,10 @@ $sharetastic-tumblr: #35465c !default
 $sharetastic-tumblr-hover: darken($sharetastic-tumblr, 10%) !default
 $sharetastic-flickr: #ff0084 !default
 $sharetastic-flickr-hover: darken($sharetastic-flickr, 10%) !default
-$sharetastic-email: #F70C32 !default
+$sharetastic-email: #b8213b !default
 $sharetastic-email-hover: darken($sharetastic-email, 10%) !default
+$sharetastic-print: #0058a1 !default
+$sharetastic-print-hover: darken($sharetastic-print, 10%) !default
 ```
 
 ##License
