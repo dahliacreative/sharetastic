@@ -22,7 +22,7 @@
         spriteExists = $('.sharetastic__svg').length > 0,
         storedSprite = localStorage.getItem(document.domain + '-sharetastic-svg');
 
-    if(storedSprite) {
+    if(storedSprite && !spriteExists) {
       $('body').prepend(storedSprite);
     } else if(this.length > 0 && !spriteExists) {
       $.ajax({
