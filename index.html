@@ -102,6 +102,12 @@
       }
     }
   }</code></pre>
+  <p>To disable a service, simply set it to false:</p>
+  <pre><code class="js">{
+    services: {
+      facebook: false
+    }
+  }</code></pre>
           <p>Sharer links are auto generated for available services by default, however you can overwrite these if you wish to use sharetastic simply for social links. Current available services are:</p>
           <ul>
 <li>Facebook</li>
@@ -110,9 +116,12 @@
 <li>Pinterest</li>
 <li>LinkedIn</li>
 <li>Google Plus</li>
+<li>Tumblr</li>
 <li>Flickr (Disabled by default, Required Param: href. To be used as social link only.)</li>
 <li>Email</li>
+<li>Print</li>
           </ul>
+          <p>Sharetastic, ajax's in the sprite and caches it in localStorage, if you make amends to the sprite during development, you'll have to clear your localStorage.</p>
           </div>
         </div>
       </section>
