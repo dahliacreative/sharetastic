@@ -82,7 +82,7 @@
         instagram: false,
         twitter: {
           name: 'Twitter',
-          href: 'http://twitter.com/home?status=' + encodeURIComponent(this.page.title) + ' - ' + encodeURIComponent(this.page.url),
+          href: 'http://twitter.com/home?status=' + encodeURIComponent(this.page.title) + ' - ' + encodeURIComponent(this.page.description) + ' - ' + encodeURIComponent(this.page.url),
           icon: {
             width: 32,
             height: 32,
