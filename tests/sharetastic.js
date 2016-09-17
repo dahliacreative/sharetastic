@@ -7,7 +7,7 @@
 // |___/_| |_|\__,_|_|  \___|\__\__,_|___/\__|_|\___|
 //
 // --------------------------------------------------------------------------
-//  Version: 1.3.4
+//  Version: 1.3.5
 //   Author: Simon Sturgess
 //  Website: dahliacreative.github.io/sharetastic
 //     Repo: github.com/dahliacreative/sharetastic
@@ -18,22 +18,33 @@
 
   $.fn.sharetastic = function(options) {
     var spriteOption = options && options.hasOwnProperty('sprite'),
-        sprite = spriteOption ? options.sprite : 'sharetastic.svg';
+        sprite = spriteOption ? options.sprite : 'sharetastic.svg',
+        spriteExists = $('.sharetastic__svg').length > 0,
+        storedSprite = localStorage.getItem(document.domain + '-sharetastic-svg');
 
-    if(this.length > 0) {
+    if(storedSprite) {
+      $('body').prepend(storedSprite);
+    } else if(this.length > 0 && !spriteExists) {
       $.ajax({
         url: sprite,
         success: function(data) {
-          $('body').prepend(data.documentElement);
+          var svg = data.documentElement;
+          $('body').prepend(svg);
+          localStorage.setItem(document.domain + '-sharetastic-svg', new XMLSerializer().serializeToString($(svg)[0]));
         },
         error: function(e) {
           console.log('SHARETASTIC ERROR\nStatus: ' + e.status + '\n' + sprite + ' - ' + e.statusText);
         }
       });
     }
+    
 
     return this.each(function() {
-      new Sharetastic($(this), options).build();
+      var el = $(this),
+          initialized = el.hasClass('sharetastic--initialized');
+      if(!initialized) {
+        new Sharetastic(el, options).build();
+      }
     });
   };
 
@@ -53,16 +64,14 @@
 
     // Initialise the element
     this.el = el;
-    this.el.addClass('sharetastic');
-    
-    // Extend Options
-    this.options = $.extend(true, {
+    this.el.addClass('sharetastic sharetastic--initialized');
+
+    var defaults = {
       sprite: 'sharetastic.svg',
       popup: true,
       services: {
         facebook: {
           name: 'Facebook',
-          enabled: true,
           href: 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(this.page.url) + '&title=' + encodeURIComponent(this.page.title) + '&description=' + encodeURIComponent(this.page.description),
           icon: {
             width: 32,
@@ -70,19 +79,9 @@
             id: 'sharetastic-facebook'
           }
         },
-        instagram: {
-          name: 'Instagram',
-          enabled: false,
-          href: 'https://www.instagram.com/',
-          icon: {
-            width: 32,
-            height: 32,
-            id: 'sharetastic-instagram'
-          }
-        },
+        instagram: false,
         twitter: {
           name: 'Twitter',
-          enabled: true,
           href: 'http://twitter.com/home?status=' + encodeURIComponent(this.page.title) + ' - ' + encodeURIComponent(this.page.url),
           icon: {
             width: 32,
@@ -92,7 +91,6 @@
         },
         pinterest: {
           name: 'Pinterest',
-          enabled: true,
           href: 'http://pinterest.com/pin/create/link/?url=' + encodeURIComponent(this.page.url) + '&description=' + encodeURIComponent(this.page.title) + ' - ' + encodeURIComponent(this.page.description) + '&media=' + encodeURIComponent(this.page.image),
           icon: {
             width: 32,
@@ -102,7 +100,6 @@
         },
         linkedin: {
           name: 'LinkedIn',
-          enabled: true,
           href: 'https://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(this.page.url) + '&title=' + encodeURIComponent(this.page.title) + '&summary=' + encodeURIComponent(this.page.description),
           icon: {
             width: 32,
@@ -112,7 +109,6 @@
         },
         googleplus: {
           name: 'Google +',
-          enabled: true,
           href: 'https://plus.google.com/share?url=' + encodeURIComponent(this.page.url),
           icon: {
             width: 32,
@@ -120,19 +116,9 @@
             id: 'sharetastic-googleplus'
           }
         },
-        flickr: {
-          name: 'Flickr',
-          enabled: false,
-          href: 'https://www.flickr.com/',
-          icon: {
-            width: 32,
-            height: 32,
-            id: 'sharetastic-flickr'
-          }
-        },
+        flickr: false,
         tumblr: {
           name: 'Tumblr',
-          enabled: true,
           href: 'http://www.tumblr.com/share/link?url=' + encodeURIComponent(this.page.url) + '&name=' + encodeURIComponent(this.page.title) + '&description=' + encodeURIComponent(this.page.description),
           icon: {
             width: 32,
@@ -142,8 +128,7 @@
         },
         email: {
           name: 'Email',
-          enabled: true,
-          href: 'mailto:?Body=%0A%0A' + this.page.title + '%0A' + this.page.description + '%0A' + this.page.url,
+          href: 'mailto:?Body=' + this.page.title + '%0A' + this.page.description + '%0A' + this.page.url,
           icon: {
             width: 32,
             height: 32,
@@ -152,7 +137,6 @@
         },
         print: {
           name: 'Print',
-          enabled: true,
           href: 'window.print()',
           icon: {
             width: 32,
@@ -161,7 +145,35 @@
           }
         }
       }
-    }, options);
+    };
+
+    if(options && options.hasOwnProperty('services')) {
+      if(options.services.instagram) {
+        defaults.services.instagram = {
+          name: 'Instagram',
+          href: 'https://www.instagram.com/',
+          icon: {
+            width: 32,
+            height: 32,
+            id: 'sharetastic-instagram'
+          }
+        };
+      }
+      if(options.services.flickr) {
+        defaults.services.flickr = {
+          name: 'Flickr',
+          href: 'https://www.flickr.com/',
+          icon: {
+            width: 32,
+            height: 32,
+            id: 'sharetastic-flickr'
+          }
+        };
+      }
+    }
+        
+    // Extend Options
+    this.options = $.extend(true, defaults, options);
 
   };
 
@@ -171,7 +183,7 @@
   // --------------------------------------------------------------------------
   Sharetastic.prototype.build = function() {
     for(var key in this.options.services) {
-      if(this.options.services[key].enabled) {
+      if(this.options.services[key]) {
         var link = $('<a/>'),
             service = this.options.services[key],
             self = this,

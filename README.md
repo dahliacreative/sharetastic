@@ -48,7 +48,6 @@ There are a few options you can pass when you initialize sharetastic, these are:
     services: {
       facebook: {
         name: 'Facebook',
-        enabled: true,
         href: 'http://facebook.com',
         icon: {
           width: 10,
@@ -56,6 +55,14 @@ There are a few options you can pass when you initialize sharetastic, these are:
           id: 'sharetastic-facebook'
         }
       }
+    }
+  }
+```
+To disable a service, simply set it to false:
+```
+  {
+    services: {
+      facebook: false
     }
   }
 ```
@@ -70,6 +77,7 @@ Sharer links are auto generated for available services by default, however you c
 - Flickr (Disabled by default, Required Param: href. To be used as social link only.)
 - Email
 - Print
+Sharetastic, ajax's in the sprite and caches it in localStorage, if you make amends to the sprite during development, you'll have to clear your localStorage.
 
 ##Themes
 There are four themes for sharetastic, `default` `simple` `reversed` and `text`. To use a theme other than the default one, simply add it's modifier class like so:

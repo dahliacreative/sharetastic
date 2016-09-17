@@ -3,7 +3,7 @@
   // --------------------------------------------------------------------------
   Sharetastic.prototype.build = function() {
     for(var key in this.options.services) {
-      if(this.options.services[key].enabled) {
+      if(this.options.services[key]) {
         var link = $('<a/>'),
             service = this.options.services[key],
             self = this,
