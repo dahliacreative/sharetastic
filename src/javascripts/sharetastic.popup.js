@@ -6,5 +6,3 @@
         top = (screen.height / 2) - (height / 2);
     window.open(url, "", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=" + width + ",height=" + height + ",top=" + top + ",left=" + left);
   };
-
-})(window, jQuery);

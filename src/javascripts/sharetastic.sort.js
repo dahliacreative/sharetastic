@@ -16,3 +16,4 @@
     this.build();
   };
 
+})(window, jQuery);

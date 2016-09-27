@@ -238,8 +238,6 @@
     window.open(url, "", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=" + width + ",height=" + height + ",top=" + top + ",left=" + left);
   };
 
-})(window, jQuery);
-
   // --------------------------------------------------------------------------
   // Sort Services
   // --------------------------------------------------------------------------
@@ -258,3 +256,4 @@
     this.build();
   };
 
+})(window, jQuery);
