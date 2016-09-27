@@ -8,7 +8,7 @@
     for(var i = 0; i < serviceCount; i ++) {
         for(var key in this.options.services) {
             var service = this.options.services[key];
-            if(service.sort === i) {
+            if(service.order === i) {
                 this.serviceOrder.push(key);
             }
         }
