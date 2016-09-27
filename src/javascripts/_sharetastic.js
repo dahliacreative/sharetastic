@@ -1,13 +1,13 @@
 // --------------------------------------------------------------------------
-//      _                    _            _   _      
-//     | |                  | |          | | (_)     
-//  ___| |__   __ _ _ __ ___| |_ __ _ ___| |_ _  ___ 
+//      _                    _            _   _
+//     | |                  | |          | | (_)
+//  ___| |__   __ _ _ __ ___| |_ __ _ ___| |_ _  ___
 // / __| '_ \ / _` | '__/ _ \ __/ _` / __| __| |/ __|
-// \__ \ | | | (_| | | |  __/ || (_| \__ \ |_| | (__ 
+// \__ \ | | | (_| | | |  __/ || (_| \__ \ |_| | (__
 // |___/_| |_|\__,_|_|  \___|\__\__,_|___/\__|_|\___|
 //
 // --------------------------------------------------------------------------
-//  Version: 1.3.5
+//  Version: 1.3.6
 //   Author: Simon Sturgess
 //  Website: dahliacreative.github.io/sharetastic
 //     Repo: github.com/dahliacreative/sharetastic
@@ -37,13 +37,13 @@
         }
       });
     }
-    
+
 
     return this.each(function() {
       var el = $(this),
           initialized = el.hasClass('sharetastic--initialized');
       if(!initialized) {
-        new Sharetastic(el, options).build();
+        new Sharetastic(el, options).sort();
       }
     });
   };
@@ -71,6 +71,7 @@
       popup: true,
       services: {
         facebook: {
+          order: 0,
           name: 'Facebook',
           href: 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(this.page.url) + '&title=' + encodeURIComponent(this.page.title) + '&description=' + encodeURIComponent(this.page.description),
           icon: {
@@ -81,6 +82,7 @@
         },
         instagram: false,
         twitter: {
+          order: 2,
           name: 'Twitter',
           href: 'http://twitter.com/home?status=' + encodeURIComponent(this.page.title) + ' - ' + encodeURIComponent(this.page.description) + ' - ' + encodeURIComponent(this.page.url),
           icon: {
@@ -90,6 +92,7 @@
           }
         },
         pinterest: {
+          order: 3,
           name: 'Pinterest',
           href: 'http://pinterest.com/pin/create/link/?url=' + encodeURIComponent(this.page.url) + '&description=' + encodeURIComponent(this.page.title) + ' - ' + encodeURIComponent(this.page.description) + '&media=' + encodeURIComponent(this.page.image),
           icon: {
@@ -99,6 +102,7 @@
           }
         },
         linkedin: {
+          order: 4,
           name: 'LinkedIn',
           href: 'https://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(this.page.url) + '&title=' + encodeURIComponent(this.page.title) + '&summary=' + encodeURIComponent(this.page.description),
           icon: {
@@ -108,6 +112,7 @@
           }
         },
         googleplus: {
+          order: 5,
           name: 'Google +',
           href: 'https://plus.google.com/share?url=' + encodeURIComponent(this.page.url),
           icon: {
@@ -118,6 +123,7 @@
         },
         flickr: false,
         tumblr: {
+          order: 7,
           name: 'Tumblr',
           href: 'http://www.tumblr.com/share/link?url=' + encodeURIComponent(this.page.url) + '&name=' + encodeURIComponent(this.page.title) + '&description=' + encodeURIComponent(this.page.description),
           icon: {
@@ -127,6 +133,7 @@
           }
         },
         email: {
+          order: 8,
           name: 'Email',
           href: 'mailto:?Body=' + this.page.title + '%0A' + this.page.description + '%0A' + this.page.url,
           icon: {
@@ -136,6 +143,7 @@
           }
         },
         print: {
+          order: 9,
           name: 'Print',
           href: 'window.print()',
           icon: {
@@ -150,6 +158,7 @@
     if(options && options.hasOwnProperty('services')) {
       if(options.services.instagram) {
         defaults.services.instagram = {
+          order: 2,
           name: 'Instagram',
           href: 'https://www.instagram.com/',
           icon: {
@@ -161,6 +170,7 @@
       }
       if(options.services.flickr) {
         defaults.services.flickr = {
+          order: 6,
           name: 'Flickr',
           href: 'https://www.flickr.com/',
           icon: {
@@ -171,7 +181,7 @@
         };
       }
     }
-        
+
     // Extend Options
     this.options = $.extend(true, defaults, options);
 

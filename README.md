@@ -1,6 +1,6 @@
 #Sharetastic
 
-_A simple jQuery social sharing plugin, styled with sass for easy customization_  
+_A simple jQuery social sharing plugin, styled with sass for easy customization_
 [http://dahliacreative.github.io/sharetastic/](http://dahliacreative.github.io/sharetastic/)
 
 
@@ -47,6 +47,7 @@ There are a few options you can pass when you initialize sharetastic, these are:
     popup: true,
     services: {
       facebook: {
+        order: 0,
         name: 'Facebook',
         href: 'http://facebook.com',
         icon: {

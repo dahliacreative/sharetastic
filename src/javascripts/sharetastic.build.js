@@ -2,9 +2,10 @@
   // Build the DOM
   // --------------------------------------------------------------------------
   Sharetastic.prototype.build = function() {
-    for(var key in this.options.services) {
-      if(this.options.services[key]) {
-        var link = $('<a/>'),
+
+    for(var i = 0; i < this.serviceOrder.length; i ++) {
+        var key = this.serviceOrder[i],
+            link = $('<a/>'),
             service = this.options.services[key],
             self = this,
             action = key === 'print' ? 'onclick' : 'href';
@@ -20,7 +21,5 @@
             return false;
           });
         }
-      }
     }
   };
-

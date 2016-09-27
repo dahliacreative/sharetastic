@@ -31,7 +31,7 @@
   overflow: hidden;
   position: relative;
   text-indent: 100%;
-  transition: background-color .3s, color .3s;
+  transition: background-color 0.3s, color 0.3s;
   vertical-align: middle;
   width: 32px;
   white-space: nowrap;
@@ -109,7 +109,7 @@
   transform: translate(-50%, -50%);
 }
 .sharetastic--simple .sharetastic__icon, .sharetastic--simple.sharetastic--reversed .sharetastic__icon {
-  transition: fill .3s;
+  transition: fill 0.3s;
 }
 .sharetastic--simple .sharetastic__button, .sharetastic--simple.sharetastic--reversed .sharetastic__button {
   background-color: transparent !important;
@@ -176,7 +176,7 @@
   fill: #003c6e;
 }
 .sharetastic--reversed .sharetastic__icon, .sharetastic--reversed.sharetastic--text .sharetastic__icon {
-  transition: fill .3s;
+  transition: fill 0.3s;
 }
 .sharetastic--reversed .sharetastic__button, .sharetastic--reversed.sharetastic--text .sharetastic__button {
   background-color: #fff;
