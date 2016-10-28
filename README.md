@@ -25,6 +25,14 @@ You then just need a container somewhere in your body:
 ```
 <div class="sharetastic"></div>
 ```
+You can overwrite the above options with custom data attributes on our sharetastic container like so:
+```
+<div class="sharetastic" data-url="http://customurl" data-title="Custom title" data-description="Custom Description"></div>
+```
+You can also define a completely custom tweet like so:
+```
+<div class="sharetastic" data-tweet="Custom tweet text"></div>
+```
 
 ###JS
 ```

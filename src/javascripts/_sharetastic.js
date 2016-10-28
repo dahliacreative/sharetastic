@@ -7,7 +7,7 @@
 // |___/_| |_|\__,_|_|  \___|\__\__,_|___/\__|_|\___|
 //
 // --------------------------------------------------------------------------
-//  Version: 1.3.6
+//  Version: 1.3.7
 //   Author: Simon Sturgess
 //  Website: dahliacreative.github.io/sharetastic
 //     Repo: github.com/dahliacreative/sharetastic
@@ -61,6 +61,20 @@
       description: this.getMetaContent('og:description'),
       image: this.getMetaContent('og:image')
     };
+
+    // Check if element has custom attributes
+    if(el[0].hasAttribute('data-url')) {
+      this.page.url = el.data('url');
+    }
+    if(el[0].hasAttribute('data-title')) {
+      this.page.title = el.data('title');
+    }
+    if(el[0].hasAttribute('data-description')) {
+      this.page.description = el.data('description');
+    }
+    if(el[0].hasAttribute('data-image')) {
+      this.page.image = el.data('image');
+    }
 
     // Initialise the element
     this.el = el;
@@ -185,5 +199,9 @@
     // Extend Options
     this.options = $.extend(true, defaults, options);
 
-  };
+    // Check for custom tweet message
+    if(el[0].hasAttribute('data-tweet')) {
+      this.options.services.twitter.href = 'http://twitter.com/home?status=' + encodeURIComponent(el.data('tweet'));
+    }
 
+  };
