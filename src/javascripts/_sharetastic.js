@@ -7,7 +7,7 @@
 // |___/_| |_|\__,_|_|  \___|\__\__,_|___/\__|_|\___|
 //
 // --------------------------------------------------------------------------
-//  Version: 1.3.7
+//  Version: 1.3.8
 //   Author: Simon Sturgess
 //  Website: dahliacreative.github.io/sharetastic
 //     Repo: github.com/dahliacreative/sharetastic
@@ -22,7 +22,7 @@
         spriteExists = $('.sharetastic__svg').length > 0,
         storedSprite = localStorage.getItem(document.domain + '-sharetastic-svg');
 
-    if(storedSprite) {
+    if(storedSprite && !spriteExists) {
       $('body').prepend(storedSprite);
     } else if(this.length > 0 && !spriteExists) {
       $.ajax({
