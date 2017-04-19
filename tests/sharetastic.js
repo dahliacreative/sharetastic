@@ -19,18 +19,14 @@
   $.fn.sharetastic = function(options) {
     var spriteOption = options && options.hasOwnProperty('sprite'),
         sprite = spriteOption ? options.sprite : 'sharetastic.svg',
-        spriteExists = $('.sharetastic__svg').length > 0,
-        storedSprite = localStorage.getItem(document.domain + '-sharetastic-svg');
+        spriteExists = $('.sharetastic__svg').length > 0;
 
-    if(storedSprite && !spriteExists) {
-      $('body').prepend(storedSprite);
-    } else if(this.length > 0 && !spriteExists) {
+    if(this.length > 0 && !spriteExists) {
       $.ajax({
         url: sprite,
         success: function(data) {
           var svg = data.documentElement;
           $('body').prepend(svg);
-          localStorage.setItem(document.domain + '-sharetastic-svg', new XMLSerializer().serializeToString($(svg)[0]));
         },
         error: function(e) {
           console.log('SHARETASTIC ERROR\nStatus: ' + e.status + '\n' + sprite + ' - ' + e.statusText);
