@@ -209,7 +209,6 @@ var Sharetastic = function () {
         value: function sort() {
             var _this2 = this;
 
-            console.log(this.options);
             this.serviceOrder = [];
             Object.keys(this.options.services).map(function (k, i) {
                 Object.keys(_this2.options.services).map(function (key) {
