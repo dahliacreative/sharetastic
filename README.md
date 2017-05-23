@@ -7,7 +7,7 @@ _A simple jQuery social sharing plugin, styled with sass for easy customization_
 
 ### NPM / Yarn
 ```
-npm install sharetastic
+npm install sharetastic --save
 yarn add sharetastic
 ```
 
