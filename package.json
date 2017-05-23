@@ -1,6 +1,6 @@
 {
   "name": "sharetastic",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "A simple jQuery social sharing plugin",
   "main": "dist/sharetastic.js",
   "style": "dist/sharetastic.sass",
