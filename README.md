@@ -11,6 +11,11 @@ npm install sharetastic
 yarn add sharetastic
 ```
 
+### Bower
+```
+bower install --save jquery-sharetastic
+```
+
 ## Usage
 
 ### HTML
