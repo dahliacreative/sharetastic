@@ -1,14 +1,42 @@
 {
-  "name": "Selectron",
-  "version": "1.0.0",
-  "description": "An accessible jQuery custom select",
+  "name": "sharetastic",
+  "version": "2.0.0",
+  "description": "A simple jQuery social sharing plugin",
+  "main": "dist/sharetastic.js",
+  "style": "dist/sharetastic.sass",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dahliacreative/sharetastic.git"
+  },
+  "keywords": [
+    "javascript",
+    "sharing",
+    "plugin",
+    "jquery"
+  ],
+  "author": "Simon Sturgess <simon@dahliacreative.com> (http://www.dahliacreative.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dahliacreative/sharetastic/issues"
+  },
+  "homepage": "https://github.com/dahliacreative/sharetastic#readme",
   "devDependencies": {
-    "grunt": "~0.4.5",
-    "grunt-contrib-clean": "~0.6.0",
-    "grunt-contrib-concat": "~0.5.0",
-    "grunt-contrib-copy": "~0.6.0",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-contrib-sass": "~0.8.1",
-    "load-grunt-config": "~0.16.0"
-  }
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-assign": "^6.22.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^7.3.0",
+    "browserify": "^14.3.0",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-notify": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-stats": "^0.0.4",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {}
 }

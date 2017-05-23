@@ -1,19 +1,24 @@
-#Sharetastic
+# Sharetastic
 
 _A simple jQuery social sharing plugin, styled with sass for easy customization_
-[http://dahliacreative.github.io/sharetastic/](http://dahliacreative.github.io/sharetastic/)
 
 
-##Installation
+## Installation
 
-###Bower
+### NPM / Yarn
+```
+npm install sharetastic --save
+yarn add sharetastic
+```
+
+### Bower
 ```
 bower install --save jquery-sharetastic
 ```
 
-##Usage
+## Usage
 
-###HTML
+### HTML
 Sharetastic makes use of the default OpenGraph meta tags to construct it's URLs:
 ```
 <meta property="og:title" content="Title for your page" />
@@ -34,12 +39,12 @@ You can also define a completely custom tweet like so:
 <div class="sharetastic" data-tweet="Custom tweet text"></div>
 ```
 
-###JS
+### JS
 ```
 $('.sharetastic').sharetastic();
 ```
 
-##Options
+## Options
 There are a few options you can pass when you initialize sharetastic, these are:
 
 | Option             | Description                                                                               | Default           |
@@ -48,7 +53,7 @@ There are a few options you can pass when you initialize sharetastic, these are:
 | popup              | Makes links open in a popup window                                                        | true              |
 | services           | Object of services, you can add custom ones or overwrite elements of the default services |                   |
 
-####Example
+#### Example
 ```
   {
     sprite: "sharetastic.svg",
@@ -89,7 +94,7 @@ Sharer links are auto generated for available services by default, however you c
 
 Sharetastic, ajax's in the sprite and caches it in localStorage, if you make amends to the sprite during development, you'll have to clear your localStorage.
 
-##Themes
+## Themes
 There are four themes for sharetastic, `default` `simple` `reversed` and `text`. To use a theme other than the default one, simply add it's modifier class like so:
 ```
 <div class="sharetastic sharetastic--simple"></div>
@@ -105,7 +110,7 @@ Or use a combination
 <div class="sharetastic sharetastic--text sharetastic--simple"></div>
 ```
 
-##Adding a label
+## Adding a label
 If you wish to add a label to sharetastic, simply place it inside your sharetastic container like so, I suggest giving it a BEM class which follows the sharetastic naming convention:
 ```
 <div class="sharetastic">
@@ -113,10 +118,10 @@ If you wish to add a label to sharetastic, simply place it inside your sharetast
 </div>
 ```
 
-##Customization
+## Customization
 Sharetastic has been written to be easily customized using Sass variables. To overwrite the defaults simply define your variables before the inclusion of `sharetastic.sass`.
 
-###Available variables
+### Available variables
 ```
 $sharetastic-font-size: 13px !default
 $sharetastic-font-color: #ccc !default
@@ -153,7 +158,7 @@ $sharetastic-print: #0058a1 !default
 $sharetastic-print-hover: darken($sharetastic-print, 10%) !default
 ```
 
-##License
+## License
 Copyright (c) 2016 Simon Sturgess
 
 Licensed under the MIT license.
