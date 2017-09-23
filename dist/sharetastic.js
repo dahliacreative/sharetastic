@@ -198,7 +198,7 @@ var Sharetastic = function () {
                 if (key !== 'email' && key !== 'print' && _this.options.popup) {
                     link.addEventListener('click', function (e) {
                         e.preventDefault();
-                        self.popup(e.target.getAttribute('href'), 500, 300);
+                        self.popup(e.currentTarget.getAttribute('href'), 500, 300);
                     });
                 }
                 _this.element.appendChild(link);
