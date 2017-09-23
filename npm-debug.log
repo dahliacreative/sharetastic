@@ -1,0 +1,132 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/dahliacreative/.nvm/versions/node/v7.7.1/bin/node',
+1 verbose cli   '/Users/dahliacreative/.nvm/versions/node/v7.7.1/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@4.1.2
+3 info using node@v7.7.1
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/dahliacreative/Documents/Code/sharetastic',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/dahliacreative/.npm/sharetastic/2.0.4/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/dahliacreative/.npm correctMkdir not in flight; initializing
+10 info lifecycle sharetastic@2.0.4~prepublish: sharetastic@2.0.4
+11 silly lifecycle sharetastic@2.0.4~prepublish: no script for prepublish, continuing
+12 info lifecycle sharetastic@2.0.4~prepare: sharetastic@2.0.4
+13 silly lifecycle sharetastic@2.0.4~prepare: no script for prepare, continuing
+14 verbose tar pack [ '/Users/dahliacreative/.npm/sharetastic/2.0.4/package.tgz',
+14 verbose tar pack   '/Users/dahliacreative/Documents/Code/sharetastic' ]
+15 verbose tarball /Users/dahliacreative/.npm/sharetastic/2.0.4/package.tgz
+16 verbose folder /Users/dahliacreative/Documents/Code/sharetastic
+17 verbose addLocalTarball adding from inside cache /Users/dahliacreative/.npm/sharetastic/2.0.4/package.tgz
+18 verbose correctMkdir /Users/dahliacreative/.npm correctMkdir not in flight; initializing
+19 silly cache afterAdd sharetastic@2.0.4
+20 verbose afterAdd /Users/dahliacreative/.npm/sharetastic/2.0.4/package/package.json not in flight; writing
+21 verbose correctMkdir /Users/dahliacreative/.npm correctMkdir not in flight; initializing
+22 verbose afterAdd /Users/dahliacreative/.npm/sharetastic/2.0.4/package/package.json written
+23 silly publish { name: 'sharetastic',
+23 silly publish   version: '2.0.4',
+23 silly publish   description: 'A simple jQuery social sharing plugin',
+23 silly publish   main: 'dist/sharetastic.js',
+23 silly publish   style: 'dist/sharetastic.sass',
+23 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+23 silly publish   repository:
+23 silly publish    { type: 'git',
+23 silly publish      url: 'git+https://github.com/dahliacreative/sharetastic.git' },
+23 silly publish   keywords: [ 'javascript', 'sharing', 'plugin', 'jquery' ],
+23 silly publish   author:
+23 silly publish    { name: 'Simon Sturgess',
+23 silly publish      email: 'simon@dahliacreative.com',
+23 silly publish      url: 'http://www.dahliacreative.com' },
+23 silly publish   license: 'ISC',
+23 silly publish   bugs: { url: 'https://github.com/dahliacreative/sharetastic/issues' },
+23 silly publish   homepage: 'https://github.com/dahliacreative/sharetastic#readme',
+23 silly publish   devDependencies:
+23 silly publish    { 'babel-plugin-transform-class-properties': '^6.24.1',
+23 silly publish      'babel-plugin-transform-object-assign': '^6.22.0',
+23 silly publish      'babel-preset-es2015': '^6.24.1',
+23 silly publish      babelify: '^7.3.0',
+23 silly publish      browserify: '^14.3.0',
+23 silly publish      gulp: '^3.9.1',
+23 silly publish      'gulp-clean': '^0.3.2',
+23 silly publish      'gulp-notify': '^3.0.0',
+23 silly publish      'gulp-plumber': '^1.1.0',
+23 silly publish      'gulp-sass': '^3.1.0',
+23 silly publish      'gulp-stats': '^0.0.4',
+23 silly publish      'vinyl-buffer': '^1.0.0',
+23 silly publish      'vinyl-source-stream': '^1.1.0' },
+23 silly publish   dependencies: {},
+23 silly publish   readme: '# Sharetastic\n\n_A simple jQuery social sharing plugin, styled with sass for easy customization_\n\n\n## Installation\n\n### NPM / Yarn\n```\nnpm install sharetastic --save\nyarn add sharetastic\n```\n\n### Bower\n```\nbower install --save jquery-sharetastic\n```\n\n## Usage\n\n### HTML\nSharetastic makes use of the default OpenGraph meta tags to construct it\'s URLs:\n```\n<meta property="og:title" content="Title for your page" />\n<meta property="og:description" content="Description for your page" />\n<meta property="og:url" content="http://url/of/your/page" />\n<meta property="og:image" content="https://path/to/the/main/image/for/your/page" />\n```\nYou then just need a container somewhere in your body:\n```\n<div class="sharetastic"></div>\n```\nYou can overwrite the above options with custom data attributes on our sharetastic container like so:\n```\n<div class="sharetastic" data-url="http://customurl" data-title="Custom title" data-description="Custom Description"></div>\n```\nYou can also define a completely custom tweet like so:\n```\n<div class="sharetastic" data-tweet="Custom tweet text"></div>\n```\n\n### JS\n```\n$(\'.sharetastic\').sharetastic();\n```\n\n## Options\nThere are a few options you can pass when you initialize sharetastic, these are:\n\n| Option             | Description                                                                               | Default           |\n|--------------------|-------------------------------------------------------------------------------------------|-------------------|\n| sprite             | Path to sprite                                                                            | "sharetastic.svg" |\n| popup              | Makes links open in a popup window                                                        | true              |\n| services           | Object of services, you can add custom ones or overwrite elements of the default services |                   |\n\n#### Example\n```\n  {\n    sprite: "sharetastic.svg",\n    popup: true,\n    services: {\n      facebook: {\n        order: 0,\n        name: \'Facebook\',\n        href: \'http://facebook.com\',\n        icon: {\n          width: 10,\n          height: 19,\n          id: \'sharetastic-facebook\'\n        }\n      }\n    }\n  }\n```\nTo disable a service, simply set it to false:\n```\n  {\n    services: {\n      facebook: false\n    }\n  }\n```\nSharer links are auto generated for available services by default, however you can overwrite these if you wish to use sharetastic simply for social links. Current available services are:\n- Facebook\n- Instagram (Disabled by default, Required Param: href. To be used as social link only.)\n- Twitter\n- Pinterest\n- LinkedIn\n- Google Plus\n- Tumblr\n- Flickr (Disabled by default, Required Param: href. To be used as social link only.)\n- Email\n- Print\n\nSharetastic, ajax\'s in the sprite and caches it in localStorage, if you make amends to the sprite during development, you\'ll have to clear your localStorage.\n\n## Themes\nThere are four themes for sharetastic, `default` `simple` `reversed` and `text`. To use a theme other than the default one, simply add it\'s modifier class like so:\n```\n<div class="sharetastic sharetastic--simple"></div>\n```\n```\n<div class="sharetastic sharetastic--reversed"></div>\n```\n```\n<div class="sharetastic sharetastic--text"></div>\n```\nOr use a combination\n```\n<div class="sharetastic sharetastic--text sharetastic--simple"></div>\n```\n\n## Adding a label\nIf you wish to add a label to sharetastic, simply place it inside your sharetastic container like so, I suggest giving it a BEM class which follows the sharetastic naming convention:\n```\n<div class="sharetastic">\n  <span class="sharetastic__label">Share this:</span>\n</div>\n```\n\n## Customization\nSharetastic has been written to be easily customized using Sass variables. To overwrite the defaults simply define your variables before the inclusion of `sharetastic.sass`.\n\n### Available variables\n```\n$sharetastic-font-size: 13px !default\n$sharetastic-font-color: #ccc !default\n$sharetastic-font: sans-serif !default\n$sharetastic-text-transform: capitalize !default\n\n$sharetastic-alignment: center !default\n$sharetastic-gutter: 4px !default\n$sharetastic-size: 32px !default\n$sharetastic-padding: 5px 10px !default\n$sharetastic-icon-margin: 0px !default\n$sharetastic-border-radius: 50% !default\n$sharetastic-icon-fill: #fff !default\n\n$sharetastic-facebook: #3a5795 !default\n$sharetastic-facebook-hover: darken($sharetastic-facebook, 10%) !default\n$sharetastic-instagram: #e1306c !default\n$sharetastic-instagram-hover: darken($sharetastic-instagram, 10%) !default\n$sharetastic-twitter: #1da1f2 !default\n$sharetastic-twitter-hover: darken($sharetastic-twitter, 10%) !default\n$sharetastic-pinterest: #bd081c !default\n$sharetastic-pinterest-hover: darken($sharetastic-pinterest, 10%) !default\n$sharetastic-linkedin: #0077b5 !default\n$sharetastic-linkedin-hover: darken($sharetastic-linkedin, 10%) !default\n$sharetastic-googleplus: #c53929 !default\n$sharetastic-googleplus-hover: darken($sharetastic-googleplus, 10%) !default\n$sharetastic-tumblr: #35465c !default\n$sharetastic-tumblr-hover: darken($sharetastic-tumblr, 10%) !default\n$sharetastic-flickr: #ff0084 !default\n$sharetastic-flickr-hover: darken($sharetastic-flickr, 10%) !default\n$sharetastic-email: #b8213b !default\n$sharetastic-email-hover: darken($sharetastic-email, 10%) !default\n$sharetastic-print: #0058a1 !default\n$sharetastic-print-hover: darken($sharetastic-print, 10%) !default\n```\n\n## License\nCopyright (c) 2016 Simon Sturgess\n\nLicensed under the MIT license.\n',
+23 silly publish   readmeFilename: 'README.md',
+23 silly publish   gitHead: 'ae6dbb2efca00e2d04b9e177c1a75f3ad52ec5a2',
+23 silly publish   _id: 'sharetastic@2.0.4',
+23 silly publish   _shasum: '7b8dc85b1c356d4427e355d19c40ee41cbc365fb',
+23 silly publish   _from: '.' }
+24 info lifecycle sharetastic@2.0.4~prepublishOnly: sharetastic@2.0.4
+25 silly lifecycle sharetastic@2.0.4~prepublishOnly: no script for prepublishOnly, continuing
+26 verbose getPublishConfig undefined
+27 silly mapToRegistry name sharetastic
+28 silly mapToRegistry using default registry
+29 silly mapToRegistry registry https://registry.npmjs.org/
+30 silly mapToRegistry data Result {
+30 silly mapToRegistry   raw: 'sharetastic',
+30 silly mapToRegistry   scope: null,
+30 silly mapToRegistry   escapedName: 'sharetastic',
+30 silly mapToRegistry   name: 'sharetastic',
+30 silly mapToRegistry   rawSpec: '',
+30 silly mapToRegistry   spec: 'latest',
+30 silly mapToRegistry   type: 'tag' }
+31 silly mapToRegistry uri https://registry.npmjs.org/sharetastic
+32 verbose publish registryBase https://registry.npmjs.org/
+33 silly publish uploading /Users/dahliacreative/.npm/sharetastic/2.0.4/package.tgz
+34 verbose request uri https://registry.npmjs.org/sharetastic
+35 verbose request sending authorization for write operation
+36 info attempt registry request try #1 at 11:39:19 AM
+37 verbose request using bearer token for auth
+38 verbose request id e382faba8c043fd6
+39 http request PUT https://registry.npmjs.org/sharetastic
+40 http 403 https://registry.npmjs.org/sharetastic
+41 verbose headers { 'content-type': 'application/json',
+41 verbose headers   'cache-control': 'max-age=300',
+41 verbose headers   'content-length': '91',
+41 verbose headers   'accept-ranges': 'bytes',
+41 verbose headers   date: 'Sat, 23 Sep 2017 10:39:20 GMT',
+41 verbose headers   via: '1.1 varnish',
+41 verbose headers   connection: 'keep-alive',
+41 verbose headers   'x-served-by': 'cache-lhr6326-LHR',
+41 verbose headers   'x-cache': 'MISS',
+41 verbose headers   'x-cache-hits': '0',
+41 verbose headers   'x-timer': 'S1506163159.881390,VS0,VE1343',
+41 verbose headers   vary: 'Accept-Encoding, Accept' }
+42 verbose request invalidating /Users/dahliacreative/.npm/registry.npmjs.org/sharetastic on PUT
+43 error publish Failed PUT 403
+44 verbose stack Error: You cannot publish over the previously published version 2.0.4. : sharetastic
+44 verbose stack     at makeError (/Users/dahliacreative/.nvm/versions/node/v7.7.1/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:304:12)
+44 verbose stack     at CachingRegistryClient.<anonymous> (/Users/dahliacreative/.nvm/versions/node/v7.7.1/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:292:14)
+44 verbose stack     at Request._callback (/Users/dahliacreative/.nvm/versions/node/v7.7.1/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:212:14)
+44 verbose stack     at Request.self.callback (/Users/dahliacreative/.nvm/versions/node/v7.7.1/lib/node_modules/npm/node_modules/request/request.js:186:22)
+44 verbose stack     at emitTwo (events.js:106:13)
+44 verbose stack     at Request.emit (events.js:194:7)
+44 verbose stack     at Request.<anonymous> (/Users/dahliacreative/.nvm/versions/node/v7.7.1/lib/node_modules/npm/node_modules/request/request.js:1081:10)
+44 verbose stack     at emitOne (events.js:96:13)
+44 verbose stack     at Request.emit (events.js:191:7)
+44 verbose stack     at IncomingMessage.<anonymous> (/Users/dahliacreative/.nvm/versions/node/v7.7.1/lib/node_modules/npm/node_modules/request/request.js:1001:12)
+45 verbose statusCode 403
+46 verbose pkgid sharetastic
+47 verbose cwd /Users/dahliacreative/Documents/Code/sharetastic
+48 error Darwin 15.6.0
+49 error argv "/Users/dahliacreative/.nvm/versions/node/v7.7.1/bin/node" "/Users/dahliacreative/.nvm/versions/node/v7.7.1/bin/npm" "publish"
+50 error node v7.7.1
+51 error npm  v4.1.2
+52 error code E403
+53 error You cannot publish over the previously published version 2.0.4. : sharetastic
+54 error If you need help, you may report this error at:
+54 error     <https://github.com/npm/npm/issues>
+55 verbose exit [ 1, true ]
