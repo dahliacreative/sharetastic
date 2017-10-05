@@ -15,7 +15,8 @@ var Sharetastic = function () {
         this.element = element;
         this.page = this.generateOpenGraph();
         this.options = this.generateOptions(options);
-        this.element.classList.add('sharetastic', 'sharetastic--initialized');
+        this.element.classList.add('sharetastic');
+        this.element.classList.add('sharetastic--initialized');
     }
 
     _createClass(Sharetastic, [{
@@ -190,7 +191,8 @@ var Sharetastic = function () {
                 var self = _this;
                 var service = _this.options.services[key];
 
-                link.classList.add('sharetastic__button', 'sharetastic__button--' + key);
+                link.classList.add('sharetastic__button');
+                link.classList.add('sharetastic__button--' + key);
                 link.setAttribute(action, service.href);
                 link.setAttribute('target', '_blank');
                 link.innerHTML = '<svg width="' + service.icon.width + '"" height="' + service.icon.height + '" class="sharetastic__icon"><use xlink:href="#' + service.icon.id + '"/></svg>' + service.name;
