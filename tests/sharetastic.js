@@ -159,6 +159,16 @@
           height: 32,
           id: 'sharetastic-print'
         }
+      },
+      whatsapp: {
+        name: 'WhatsApp',
+        enabled: true,
+        href: 'whatsapp://send?text=' + this.page.title + ' - ' + this.page.description + ' ' + this.page.url,
+        icon: {
+          width: 32,
+          height: 32,
+          id: 'sharetastic-whatsapp'
+        }
       }
     }
   }, options);
