@@ -163,7 +163,7 @@
       whatsapp: {
         name: 'WhatsApp',
         enabled: true,
-        href: 'whatsapp://send?text=' + this.page.title + ' - ' + this.page.description + ' ' + this.page.url,
+        href: 'https://api.whatsapp.com/send?text=' + this.page.title + ' - ' + this.page.description + ' ' + this.page.url,
         icon: {
           width: 32,
           height: 32,
