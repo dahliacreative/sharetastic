@@ -150,16 +150,6 @@
           id: 'sharetastic-email'
         }
       },
-      print: {
-        name: 'Print',
-        enabled: true,
-        href: 'window.print()',
-        icon: {
-          width: 32,
-          height: 32,
-          id: 'sharetastic-print'
-        }
-      },
       whatsapp: {
         name: 'WhatsApp',
         enabled: true,
@@ -168,6 +158,16 @@
           width: 32,
           height: 32,
           id: 'sharetastic-whatsapp'
+        }
+      },
+      print: {
+        name: 'Print',
+        enabled: true,
+        href: 'window.print()',
+        icon: {
+          width: 32,
+          height: 32,
+          id: 'sharetastic-print'
         }
       }
     }
