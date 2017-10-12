@@ -69,6 +69,10 @@
       background-color: #b8213b; }
       .sharetastic__button--email:hover {
         background-color: #8d192d; }
+    .sharetastic__button--whatsapp {
+      background-color: #25D366; }
+      .sharetastic__button--whatsapp:hover {
+        background-color: #1da851; }
     .sharetastic__button--print {
       background-color: #0058a1; }
       .sharetastic__button--print:hover {
@@ -145,6 +149,12 @@
     .sharetastic--simple .sharetastic__button--email:hover .sharetastic__icon,
     .sharetastic--simple.sharetastic--reversed .sharetastic__button--email:hover .sharetastic__icon {
       fill: #8d192d; }
+    .sharetastic--simple .sharetastic__button--whatsapp .sharetastic__icon,
+    .sharetastic--simple.sharetastic--reversed .sharetastic__button--whatsapp .sharetastic__icon {
+      fill: #25D366; }
+    .sharetastic--simple .sharetastic__button--whatsapp:hover .sharetastic__icon,
+    .sharetastic--simple.sharetastic--reversed .sharetastic__button--whatsapp:hover .sharetastic__icon {
+      fill: #1da851; }
     .sharetastic--simple .sharetastic__button--print .sharetastic__icon,
     .sharetastic--simple.sharetastic--reversed .sharetastic__button--print .sharetastic__icon {
       fill: #0058a1; }
@@ -268,6 +278,18 @@
         .sharetastic--reversed .sharetastic__button--email:hover .sharetastic__icon,
         .sharetastic--reversed.sharetastic--text .sharetastic__button--email:hover .sharetastic__icon {
           fill: #fff; }
+    .sharetastic--reversed .sharetastic__button--whatsapp,
+    .sharetastic--reversed.sharetastic--text .sharetastic__button--whatsapp {
+      color: #25D366; }
+      .sharetastic--reversed .sharetastic__button--whatsapp .sharetastic__icon,
+      .sharetastic--reversed.sharetastic--text .sharetastic__button--whatsapp .sharetastic__icon {
+        fill: #25D366; }
+      .sharetastic--reversed .sharetastic__button--whatsapp:hover,
+      .sharetastic--reversed.sharetastic--text .sharetastic__button--whatsapp:hover {
+        background-color: #25D366; }
+        .sharetastic--reversed .sharetastic__button--whatsapp:hover .sharetastic__icon,
+        .sharetastic--reversed.sharetastic--text .sharetastic__button--whatsapp:hover .sharetastic__icon {
+          fill: #fff; }
     .sharetastic--reversed .sharetastic__button--print,
     .sharetastic--reversed.sharetastic--text .sharetastic__button--print {
       color: #0058a1; }
@@ -339,6 +361,10 @@
     color: #b8213b; }
     .sharetastic--text.sharetastic--simple .sharetastic__button--email:hover {
       color: #8d192d; }
+  .sharetastic--text.sharetastic--simple .sharetastic__button--whatsapp {
+    color: #25D366; }
+    .sharetastic--text.sharetastic--simple .sharetastic__button--whatsapp:hover {
+      color: #1da851; }
   .sharetastic--text.sharetastic--simple .sharetastic__button--print {
     color: #0058a1; }
     .sharetastic--text.sharetastic--simple .sharetastic__button--print:hover {

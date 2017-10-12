@@ -90,6 +90,7 @@ Sharer links are auto generated for available services by default, however you c
 - Tumblr
 - Flickr (Disabled by default, Required Param: href. To be used as social link only.)
 - Email
+- WhatsApp
 - Print
 
 Sharetastic, ajax's in the sprite and caches it in localStorage, if you make amends to the sprite during development, you'll have to clear your localStorage.
@@ -154,6 +155,8 @@ $sharetastic-flickr: #ff0084 !default
 $sharetastic-flickr-hover: darken($sharetastic-flickr, 10%) !default
 $sharetastic-email: #b8213b !default
 $sharetastic-email-hover: darken($sharetastic-email, 10%) !default
+$sharetastic-whatsapp: #25D366 !default
+$sharetastic-whatsapp-hover: darken($sharetastic-whatsapp, 10%) !default
 $sharetastic-print: #0058a1 !default
 $sharetastic-print-hover: darken($sharetastic-print, 10%) !default
 ```
