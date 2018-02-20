@@ -94,7 +94,7 @@ var Sharetastic = function () {
                     twitter: {
                         order: 2,
                         name: 'Twitter',
-                        href: 'http://twitter.com/home?status=' + this.generateTitle() + this.generateUrl(' - '),
+                        href: 'https://twitter.com/intent/tweet?text=' + this.generateTitle() + this.generateUrl(' - '),
                         icon: {
                             width: 32,
                             height: 32,
@@ -178,7 +178,7 @@ var Sharetastic = function () {
             var exportOptions = $.extend(true, defaults, options);
 
             if (this.element.hasAttribute('data-tweet')) {
-                exportOptions.services.twitter.href = 'http://twitter.com/home?status=' + encodeURIComponent(this.element.getAttribute('data-tweet'));
+                exportOptions.services.twitter.href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(this.element.getAttribute('data-tweet'));
             }
 
             return exportOptions;
