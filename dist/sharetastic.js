@@ -204,7 +204,9 @@ var Sharetastic = function () {
                 link.classList.add('sharetastic__button');
                 link.classList.add('sharetastic__button--' + key);
                 link.setAttribute(action, service.href);
-                link.setAttribute('target', '_blank');
+                if (key !== 'email') {
+                    link.setAttribute('target', '_blank')
+                }
                 link.innerHTML = '<svg width="' + service.icon.width + '"" height="' + service.icon.height + '" class="sharetastic__icon"><use xlink:href="#' + service.icon.id + '"/></svg>' + service.name;
 
                 if (key !== 'email' && key !== 'print' && _this.options.popup) {
