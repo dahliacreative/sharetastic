@@ -1,3 +1,6 @@
+# !!! NOT ACTIVLEY MAINTAINED !!!
+I am no longer maintaining this plugin, if you are interested in taking over, drop me a msg.
+
 # Sharetastic
 
 _A simple jQuery social sharing plugin, styled with sass for easy customization_
